@@ -1,0 +1,234 @@
+﻿<Window x:Class="challange_by_coodesh.Views.PessoaView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:challange_by_coodesh.Views"
+        mc:Ignorable="d"
+        Title="Cadastro de Pessoa" Height="720" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Background="#F5F7FA">
+    
+    <Grid Margin="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Header -->
+
+        <Border Grid.Row="0" Background="#F5F7FA" Padding="20" CornerRadius="12" Margin="0,0,0,20">
+            <TextBlock Text="Cadastro de Pessoa" FontSize="24" Foreground="#000" FontWeight="Bold" TextAlignment="Center"/>
+        </Border>
+        
+        <!-- Form -->
+        <Border Grid.Row="1" Background="#FFF" CornerRadius="12" Padding="20" Margin="0,0,0,20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <!-- Nome -->
+                <TextBlock Grid.Row="1"
+                           Grid.Column="0"
+                           Text="Nome"
+                           VerticalAlignment="Center"
+                           FontWeight="SemiBold"
+                           Margin="0,0,10,15"/>
+                <TextBox Grid.Row="1"
+                         Grid.Column="1"
+                         Height="35"
+                         VerticalAlignment="Center"
+                         BorderBrush="#CBD5E0"
+                         Margin="0,0,10,15"
+                         VerticalContentAlignment="Center"/>
+                
+                <!-- CPF -->
+                <TextBlock Grid.Row="1"
+                           Grid.Column="2"
+                           Text="CPF"
+                           VerticalAlignment="Center"
+                           TextAlignment="Center"
+                           FontWeight="SemiBold"
+                           Margin="0,0,10,15"/>
+                <TextBox Grid.Row="1"
+                         Grid.Column="3"
+                         Height="35"
+                         BorderBrush="#CBD5E0"
+                         Margin="0,0,10,15"
+                         VerticalContentAlignment="Center"/>
+                
+                <!-- Endereço -->
+                <TextBlock Grid.Row="2"
+                           Grid.Column="0"
+                           Text="Endereço"
+                           VerticalAlignment="Center"
+                           FontWeight="SemiBold"
+                           Margin="0,0,10,15"/>
+                
+                <TextBox Grid.Row="2"
+                         Grid.Column="1"
+                         Grid.ColumnSpan="3"
+                         Height="35"
+                         BorderBrush="#CBD5E0"
+                         Margin="0,0,10,15"
+                         VerticalContentAlignment="Center"/>
+                
+                <!--Filtro-->
+                <StackPanel Grid.Row="3" 
+                            Grid.Column="0" 
+                            Grid.ColumnSpan="4" 
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            Margin="0,0,10,0">
+                    
+                    <TextBlock Text="Filtrar por:" 
+                               VerticalAlignment="Center" 
+                               FontWeight="SemiBold" 
+                               Margin="0,0,10,0"/>
+                    <TextBlock Text="Nome" 
+                               VerticalAlignment="Center" 
+                               FontWeight="SemiBold"
+                               Margin="0,0,5,0"/>
+                    <TextBox Width="250" 
+                             Height="35" 
+                             Margin="0,0,10,0"
+                             VerticalContentAlignment="Center"
+                             BorderBrush="#CBD5E0"  
+                             ToolTip="Pesquisar por nome"/>
+                    
+                    <TextBlock Text="CPF" 
+                               VerticalAlignment="Center" 
+                               FontWeight="SemiBold"
+                               Margin="0,0,5,0"/>
+                    
+                    <TextBox Width="200" 
+                             Height="35" 
+                             Margin="0,0,10,0"
+                             VerticalContentAlignment="Center"
+                             BorderBrush="#CBD5E0"  
+                             ToolTip="Pesquisar por CPF"/>
+
+                    <Button Content="Pesquisar" 
+                            Width="120"
+                            Height="35"
+                            Background="#3182CE" 
+                            Foreground="#FFF" 
+                            BorderBrush="#3182CE"
+                            BorderThickness="0" 
+                            Cursor="Hand"
+                            />
+                </StackPanel>
+                
+            </Grid>
+        </Border>
+        
+        <!--Grid -->
+        <Border Grid.Row="2"
+                Background="#FFF"
+                CornerRadius="12"
+                Padding="20">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <!--ACTIONS -->
+                <StackPanel Grid.Row="0"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            Margin="0,0,0,20">
+
+                    <Button Content="Incluir"
+                            Width="110"
+                            Height="38"
+                            Margin="0,0,10,0"
+                            Background="#38A169"
+                            Foreground="#FFF"
+                            BorderThickness="0"
+                            Cursor="Hand"/>
+
+                    <Button Content="Editar"
+                            Width="110"
+                            Height="38"
+                            Margin="0,0,10,0"
+                            Background="#DD6B20"
+                            Foreground="#FFF"
+                            BorderThickness="0"
+                            Cursor="Hand"/>
+
+                    <Button Content="Salvar"
+                            Width="110"
+                            Height="38"
+                            Margin="0,0,10,0"
+                            Background="#3182CE"
+                            Foreground="#FFF"
+                            BorderThickness="0"
+                            Cursor="Hand"/>
+
+                    <Button Content="Excluir"
+                            Width="110"
+                            Height="38"
+                            Margin="0,0,10,0"
+                            Background="#E53E3E"
+                            Foreground="#FFF"
+                            BorderThickness="0"
+                            Cursor="Hand"/>
+
+                    <Button Content="Incluir Pedido"
+                            Width="110"
+                            Height="38"
+                            Margin="0,0,10,0"
+                            Background="#805AD5"
+                            Foreground="#FFF"
+                            BorderThickness="0"
+                            Cursor="Hand"/>
+                </StackPanel>
+                
+                <!-- DATAGRID -->
+                <DataGrid Grid.Row="1"
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          HeadersVisibility="Column"
+                          RowHeight="35"
+                          FontSize="14"
+                          BorderThickness="0"
+                          GridLinesVisibility="Horizontal">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id"
+                                            Width="80"
+                                            Binding="{Binding Id}"/>
+
+                        <DataGridTextColumn Header="Nome"
+                                            Width="*"
+                                            Binding="{Binding Nome}"/>
+
+                        <DataGridTextColumn Header="CPF"
+                                            Width="200"
+                                            Binding="{Binding CPF}"/>
+
+                        <DataGridTextColumn Header="Endereço"
+                                            Width="2*"
+                                            Binding="{Binding Endereco}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
