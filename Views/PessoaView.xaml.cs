@@ -217,5 +217,31 @@ namespace challange_by_coodesh.Views
                 MessageBox.Show("Por favor, selecione uma pessoa para excluir.");
             }
         }
+
+        private void BtnPesquisar_Click(object sender, RoutedEventArgs e)
+        {
+            string filtroNome = txtFiltrarNome.Text.ToLower().Trim();
+            string filtroCPF = txtFiltrarCPF.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(filtroNome) && string.IsNullOrWhiteSpace(filtroCPF))
+            {
+                dgPessoa.ItemsSource = _pessoas;
+                return;
+            }
+
+            var resultado = _pessoas.Where(p =>
+            {
+                bool correspondeNome = string.IsNullOrWhiteSpace(filtroNome) || p.Nome.ToLower().Contains(filtroNome);
+                bool correspondeCPF = string.IsNullOrWhiteSpace(filtroCPF) || p.CPF.Contains(filtroCPF);
+                return correspondeNome && correspondeCPF;
+            }).ToList();
+
+            dgPessoa.ItemsSource = resultado;
+
+            if (resultado.Count == 0)
+            {
+                MessageBox.Show("Nenhuma pessoa encontrada com os critérios de pesquisa.");
+            }
+        }
     }
 }
