@@ -108,5 +108,64 @@ namespace challange_by_coodesh.Views
                 textBox.CaretIndex = textBox.Text.Length;
             }
         }
+
+        private void dgPessoa_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dgPessoa.SelectedItem is Pessoa pessoaSelecionada)
+            {
+                txtId.Text = pessoaSelecionada.Id.ToString();
+                txtNome.Text = pessoaSelecionada.Nome;
+                txtCPF.Text = pessoaSelecionada.CPF;
+                txtEndereco .Text = pessoaSelecionada.Endereco;
+
+                txtNome.IsEnabled = false;
+                txtCPF.IsEnabled = false;
+                txtEndereco.IsEnabled = false;
+
+            }
+        }
+
+        private void btnSalvar_Click(object sender, RoutedEventArgs e)
+        {
+            string id = txtId.Text;
+
+            if (!_pessoaService.IsCpfValido(txtCPF.Text))
+            {
+                MessageBox.Show("CPF inválido. Por favor, insira um CPF válido.");
+                return;
+            }
+
+            var dadosAtualizados = _pessoas.FirstOrDefault(p => p.Id.ToString() == id);
+
+            if (dadosAtualizados != null)
+            {
+                dadosAtualizados.Nome = txtNome.Text;
+                dadosAtualizados.CPF = txtCPF.Text;
+                dadosAtualizados.Endereco = txtEndereco.Text;
+                _pessoaService.SavePessoas(_pessoas.ToList());
+                dgPessoa.Items.Refresh();
+                LimparCampos();
+                MessageBox.Show("Dados atualizados com sucesso!");
+            }
+            else
+            {
+                MessageBox.Show("Pessoa não encontrada para atualização.");
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgPessoa.SelectedItem != null)
+            {
+                txtNome.IsEnabled = true;
+                txtCPF.IsEnabled = true;
+                txtEndereco.IsEnabled = true;
+                txtNome.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecione uma pessoa para editar.");
+            }
+        }
     }
 }

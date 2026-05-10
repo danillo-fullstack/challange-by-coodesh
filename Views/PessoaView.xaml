@@ -193,7 +193,7 @@
                             Background="#DD6B20"
                             Foreground="#FFF"
                             BorderThickness="0"
-                            Cursor="Hand"/>
+                            Cursor="Hand" Click="Button_Click"/>
 
                     <Button x:Name="btnSalvar"
                             Content="Salvar"
@@ -203,7 +203,7 @@
                             Background="#3182CE"
                             Foreground="#FFF"
                             BorderThickness="0"
-                            Cursor="Hand"/>
+                            Cursor="Hand" Click="btnSalvar_Click"/>
 
                     <Button Content="Excluir"
                             Width="110"
@@ -235,7 +235,8 @@
                           FontSize="14"
                           IsReadOnly="True"
                           BorderThickness="0"
-                          GridLinesVisibility="Horizontal">
+                          GridLinesVisibility="Horizontal" 
+                          SelectionChanged="dgPessoa_SelectionChanged">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id"
