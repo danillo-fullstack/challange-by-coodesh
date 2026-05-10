@@ -42,6 +42,11 @@ namespace challange_by_coodesh.Views
                     return;
                 }
 
+                if (!_pessoaService.IsCpfValido(txtCPF.Text)) {
+                    MessageBox.Show("CPF inválido. Por favor, insira um CPF válido.");
+                    return;
+                }
+
                 int proximoId = _pessoas.Any() ? _pessoas.Max(p => p.Id) + 1 : 1;
 
                 var pessoa = new Pessoa
@@ -71,6 +76,37 @@ namespace challange_by_coodesh.Views
             txtNome.Text = "";
             txtCPF.Text = "";
             txtEndereco.Text = "";
+        }
+
+        private void txtCPF_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            if (textBox == null) return;
+
+            string texto = new string(textBox.Text.Where(char.IsDigit).ToArray());
+
+            if(texto.Length >=1)
+            {
+                if (texto.Length <= 3)
+                {
+                    textBox.Text = texto;
+
+                }
+                else if (texto.Length <= 6)
+                {
+                    textBox.Text = $"{texto.Substring(0, 3)}.{texto.Substring(3)}";
+                }
+                else if (texto.Length <= 9)
+                {
+                    textBox.Text = $"{texto.Substring(0, 3)}.{texto.Substring(3, 3)}.{texto.Substring(6)}";
+                }
+                else
+                {
+                    textBox.Text = $"{texto.Substring(0, 3)}.{texto.Substring(3, 3)}.{texto.Substring(6, 3)}-{texto.Substring(9, Math.Min(2, texto.Length - 9))}";
+                }
+
+                textBox.CaretIndex = textBox.Text.Length;
+            }
         }
     }
 }
