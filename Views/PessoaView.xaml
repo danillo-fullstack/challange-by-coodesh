@@ -54,6 +54,7 @@
                          Height="35"
                          IsReadOnly="True"
                          VerticalAlignment="Center"
+                         VerticalContentAlignment="Center"
                          Background="#EDF2F7"
                          BorderBrush="#CBD5E0"
                          Margin="0,0,20,15"/>
@@ -186,14 +187,14 @@
                             BorderThickness="0"
                             Cursor="Hand" Click="btnIncluir_Click"/>
 
-                    <Button Content="Editar"
+                    <Button x:Name="btnEditar" Content="Editar"
                             Width="110"
                             Height="38"
                             Margin="0,0,10,0"
                             Background="#DD6B20"
                             Foreground="#FFF"
                             BorderThickness="0"
-                            Cursor="Hand" Click="Button_Click"/>
+                            Cursor="Hand" Click="BtnEditar_Click" IsEnabled="False"/>
 
                     <Button x:Name="btnSalvar"
                             Content="Salvar"
@@ -203,16 +204,19 @@
                             Background="#3182CE"
                             Foreground="#FFF"
                             BorderThickness="0"
-                            Cursor="Hand" Click="btnSalvar_Click"/>
+                            Cursor="Hand" Click="BtnSalvar_Click" IsEnabled="False"/>
 
-                    <Button Content="Excluir"
+                    <Button x:Name="btnExcluir" 
+                            Content="Excluir"
                             Width="110"
                             Height="38"
                             Margin="0,0,10,0"
                             Background="#E53E3E"
                             Foreground="#FFF"
                             BorderThickness="0"
-                            Cursor="Hand"/>
+                            Cursor="Hand" 
+                            IsEnabled="False" 
+                            Click="btnExcluir_Click"/>
 
                     <Button Content="Incluir Pedido"
                             Width="110"

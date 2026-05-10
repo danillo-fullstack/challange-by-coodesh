@@ -122,10 +122,16 @@ namespace challange_by_coodesh.Views
                 txtCPF.IsEnabled = false;
                 txtEndereco.IsEnabled = false;
 
+                btnEditar.IsEnabled = true;
+                btnExcluir.IsEnabled = true;
+
+            } else
+            {
+                DesabilitarAcoes();
             }
         }
 
-        private void btnSalvar_Click(object sender, RoutedEventArgs e)
+        private void BtnSalvar_Click(object sender, RoutedEventArgs e)
         {
             string id = txtId.Text;
 
@@ -146,6 +152,8 @@ namespace challange_by_coodesh.Views
                 dgPessoa.Items.Refresh();
                 LimparCampos();
                 MessageBox.Show("Dados atualizados com sucesso!");
+                btnIncluir.IsEnabled = true;
+                DesabilitarAcoes();
             }
             else
             {
@@ -153,7 +161,26 @@ namespace challange_by_coodesh.Views
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+            
+        //}
+
+        private void DesabilitarAcoes()
+        {
+            txtId.Clear();
+            txtNome.Clear();
+            txtCPF.Clear();
+            txtEndereco.Clear();
+
+            txtNome.IsEnabled = false;
+            txtCPF.IsEnabled = false;
+            txtEndereco.IsEnabled = false;
+
+            dgPessoa.SelectedItem = null;
+        }
+
+        private void BtnEditar_Click(object sender, RoutedEventArgs e)
         {
             if (dgPessoa.SelectedItem != null)
             {
@@ -161,10 +188,33 @@ namespace challange_by_coodesh.Views
                 txtCPF.IsEnabled = true;
                 txtEndereco.IsEnabled = true;
                 txtNome.Focus();
+
+                btnSalvar.IsEnabled = true;
+                btnIncluir.IsEnabled = false;
             }
             else
             {
                 MessageBox.Show("Por favor, selecione uma pessoa para editar.");
+            }
+
+        }
+
+        private void btnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgPessoa.SelectedItem is Pessoa pessoaSelecionada)
+            {
+                var resultado = MessageBox.Show($"Tem certeza que deseja excluir {pessoaSelecionada.Nome}?", "Confirmação de Exclusão", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (resultado == MessageBoxResult.Yes)
+                {
+                    _pessoas.Remove(pessoaSelecionada);
+                    _pessoaService.SavePessoas(_pessoas.ToList());
+                    DesabilitarAcoes();
+                    MessageBox.Show("Pessoa excluída com sucesso!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecione uma pessoa para excluir.");
             }
         }
     }
