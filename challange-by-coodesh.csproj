@@ -10,9 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
+    <None Remove="Data\Pessoa.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Data\Pessoa.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

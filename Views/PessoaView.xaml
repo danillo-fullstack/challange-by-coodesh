@@ -14,7 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         
         <!-- Header -->
@@ -39,7 +39,25 @@
                     <ColumnDefinition Width="70"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                
+
+                <!-- Id -->
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="ID"
+                           VerticalAlignment="Center"
+                           FontWeight="SemiBold"
+                           Margin="0,0,10,15"/>
+
+                <TextBox x:Name="txtId"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         Height="35"
+                         IsReadOnly="True"
+                         VerticalAlignment="Center"
+                         Background="#EDF2F7"
+                         BorderBrush="#CBD5E0"
+                         Margin="0,0,20,15"/>
+
                 <!-- Nome -->
                 <TextBlock Grid.Row="1"
                            Grid.Column="0"
@@ -47,7 +65,8 @@
                            VerticalAlignment="Center"
                            FontWeight="SemiBold"
                            Margin="0,0,10,15"/>
-                <TextBox Grid.Row="1"
+                <TextBox x:Name="txtNome"
+                         Grid.Row="1"
                          Grid.Column="1"
                          Height="35"
                          VerticalAlignment="Center"
@@ -63,7 +82,8 @@
                            TextAlignment="Center"
                            FontWeight="SemiBold"
                            Margin="0,0,10,15"/>
-                <TextBox Grid.Row="1"
+                <TextBox x:Name="txtCPF"
+                         Grid.Row="1"
                          Grid.Column="3"
                          Height="35"
                          BorderBrush="#CBD5E0"
@@ -77,8 +97,9 @@
                            VerticalAlignment="Center"
                            FontWeight="SemiBold"
                            Margin="0,0,10,15"/>
-                
-                <TextBox Grid.Row="2"
+
+                <TextBox x:Name="txtEndereco"
+                         Grid.Row="2"
                          Grid.Column="1"
                          Grid.ColumnSpan="3"
                          Height="35"
@@ -153,14 +174,15 @@
                             HorizontalAlignment="Right"
                             Margin="0,0,0,20">
 
-                    <Button Content="Incluir"
+                    <Button x:Name="btnIncluir"
+                            Content="Incluir"
                             Width="110"
                             Height="38"
                             Margin="0,0,10,0"
                             Background="#38A169"
                             Foreground="#FFF"
                             BorderThickness="0"
-                            Cursor="Hand"/>
+                            Cursor="Hand" Click="btnIncluir_Click"/>
 
                     <Button Content="Editar"
                             Width="110"
@@ -171,7 +193,8 @@
                             BorderThickness="0"
                             Cursor="Hand"/>
 
-                    <Button Content="Salvar"
+                    <Button x:Name="btnSalvar"
+                            Content="Salvar"
                             Width="110"
                             Height="38"
                             Margin="0,0,10,0"
@@ -200,12 +223,15 @@
                 </StackPanel>
                 
                 <!-- DATAGRID -->
-                <DataGrid Grid.Row="1"
+                <DataGrid x:Name="dgPessoa"
+                          ItemsSource="{Binding _pessoas}"
+                          Grid.Row="1"
                           AutoGenerateColumns="False"
                           CanUserAddRows="False"
                           HeadersVisibility="Column"
                           RowHeight="35"
                           FontSize="14"
+                          IsReadOnly="True"
                           BorderThickness="0"
                           GridLinesVisibility="Horizontal">
 
