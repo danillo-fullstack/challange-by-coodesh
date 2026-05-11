@@ -111,7 +111,7 @@
                          Grid.Column="5"
                          Height="35"
                          VerticalContentAlignment="Center"
-                         Margin="0,0,20,15"/>
+                         Margin="0,0,20,15" PreviewTextInput="txtValor_PreviewTextInput"/>
 
                 <!-- Filtro -->
                 <StackPanel Grid.Row="3" 
@@ -209,13 +209,13 @@
                             HorizontalAlignment="Right"
                             Margin="0,0,0,20">
 
-                    <Button x:Name="txtIncluirProduto"
+                    <Button x:Name="txtIncluir"
                             Content="Incluir"
                             Width="110"
                             Height="35"
                             Margin="0,0,10,0"
                             Background="#38A169"
-                            Foreground="#FFF"/>
+                            Foreground="#FFF" Click="txtIncluir_Click"/>
 
                     <Button x:Name="txtEditarProduto"
                             Content="Editar"
@@ -247,6 +247,9 @@
                           Grid.Row="1"
                           AutoGenerateColumns="False"
                           CanUserAddRows="False"
+                          IsReadOnly="True"
+                          SelectionMode="Single"
+                          SelectionUnit="FullRow"
                           RowHeight="35">
 
                     <DataGrid.Columns>

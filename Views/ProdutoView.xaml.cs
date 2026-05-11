@@ -1,6 +1,10 @@
-﻿using System;
+﻿using challange_by_coodesh.Models;
+using challange_by_coodesh.Services;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -17,9 +21,65 @@ namespace challange_by_coodesh.Views
     /// </summary>
     public partial class ProdutoView : Window
     {
+        private readonly ProdutoService _produtoService;
+        private ObservableCollection<Produto> _produtos;
+
         public ProdutoView()
         {
             InitializeComponent();
+
+            _produtoService = new ProdutoService();
+            var produtos = _produtoService.GetProdutos();
+            _produtos = new ObservableCollection<Produto>(produtos);
+            dgProdutos.ItemsSource = _produtos;
+        }
+
+        private void txtIncluir_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNome.Text) ||
+                string.IsNullOrWhiteSpace(txtCodigoProduto.Text) ||
+                string.IsNullOrWhiteSpace(txtValor.Text))
+            {
+                MessageBox.Show("Por favor, preencha todos os campos.");
+                return;
+            }
+
+            decimal valor;
+
+            if (!decimal.TryParse(txtValor.Text, out valor))
+            {
+                MessageBox.Show("Valor deve ser um número válido.");
+                return;
+            }
+
+            int proximoId = _produtos.Any() ? _produtos.Max(p => p.Id) + 1 : 1;
+
+            var produto = new Produto
+            {
+                Id = proximoId,
+                Nome = txtNome.Text,
+                CodigoProduto = txtCodigoProduto.Text,
+                Valor = valor
+            };
+
+            _produtos.Add(produto);
+            _produtoService.SaveProdutos(_produtos.ToList());
+            LimparCampos();
+
+        }
+
+        private void LimparCampos()
+        {
+            txtId.Clear();
+            txtNome.Clear();
+            txtCodigoProduto.Clear();
+            txtValor.Clear();
+        }
+
+        private void txtValor_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9.,]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

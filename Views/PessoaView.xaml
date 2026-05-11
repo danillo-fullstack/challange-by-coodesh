@@ -243,6 +243,8 @@
                           IsReadOnly="True"
                           BorderThickness="0"
                           GridLinesVisibility="Horizontal" 
+                          SelectionMode="Single"
+                          SelectionUnit="FullRow"
                           SelectionChanged="dgPessoa_SelectionChanged">
 
                     <DataGrid.Columns>

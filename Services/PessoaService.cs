@@ -9,7 +9,7 @@ namespace challange_by_coodesh.Services
 {
     class PessoaService
     {
-        private readonly string _filePath = "Data/Pessoa.json";
+        private readonly string _filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Pessoa.json");
 
         public List<Pessoa> GetPessoas()
         {
