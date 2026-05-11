@@ -148,15 +148,28 @@
                              BorderBrush="#CBD5E0"  
                              ToolTip="Pesquisar por CPF"/>
 
-                    <Button x:Name="BtnPesquisar" Content="Pesquisar" 
+                    <Button x:Name="BtnPesquisar" 
                             Width="120"
                             Height="35"
-                            Background="#3182CE" 
-                            Foreground="#FFF" 
-                            BorderBrush="#3182CE"
+                            Foreground="#000" 
                             BorderThickness="0" 
-                            Cursor="Hand" Click="BtnPesquisar_Click"
-                            />
+                            Cursor="Hand" Click="BtnPesquisar_Click">
+
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                            
+                            <Image Source="/Resources/Icons/search.png" 
+                                   Width="16" 
+                                   Height="16" 
+                                   Margin="0,0,5,0"/>
+
+                            <TextBlock Text="Pesquisar"
+                                       VerticalAlignment="Center"/>
+
+                        </StackPanel>
+                        
+                    </Button>
                 </StackPanel>
                 
             </Grid>
@@ -181,54 +194,121 @@
                             Margin="0,0,0,20">
 
                     <Button x:Name="btnIncluir"
-                            Content="Incluir"
                             Width="110"
                             Height="38"
                             Margin="0,0,10,0"
-                            Background="#38A169"
-                            Foreground="#FFF"
-                            BorderThickness="0"
-                            Cursor="Hand" Click="btnIncluir_Click"/>
-
-                    <Button x:Name="btnEditar" Content="Editar"
-                            Width="110"
-                            Height="38"
-                            Margin="0,0,10,0"
-                            Background="#DD6B20"
-                            Foreground="#FFF"
-                            BorderThickness="0"
-                            Cursor="Hand" Click="BtnEditar_Click" IsEnabled="False"/>
-
-                    <Button x:Name="btnSalvar"
-                            Content="Salvar"
-                            Width="110"
-                            Height="38"
-                            Margin="0,0,10,0"
-                            Background="#3182CE"
-                            Foreground="#FFF"
-                            BorderThickness="0"
-                            Cursor="Hand" Click="BtnSalvar_Click" IsEnabled="False"/>
-
-                    <Button x:Name="btnExcluir" 
-                            Content="Excluir"
-                            Width="110"
-                            Height="38"
-                            Margin="0,0,10,0"
-                            Background="#E53E3E"
-                            Foreground="#FFF"
+                            Foreground="#000"
                             BorderThickness="0"
                             Cursor="Hand" 
-                            IsEnabled="False" 
-                            Click="btnExcluir_Click"/>
+                            Click="btnIncluir_Click">
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                            <Image Source="/Resources/Icons/add.png" 
+                                   Width="16" 
+                                   Height="16" 
+                                   Margin="0,0,5,0"/>
+                            <TextBlock Text="Incluir" 
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
 
-                    <Button Content="Incluir Pedido"
+                    <Button x:Name="btnEditar" 
                             Width="110"
                             Height="38"
                             Margin="0,0,10,0"
-                            Background="#805AD5"
-                            Foreground="#FFF"
+                            Foreground="#000"
                             BorderThickness="0"
-                            Cursor="Hand"/>
+                            Cursor="Hand" 
+                            Click="BtnEditar_Click">
+
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                            
+                            <Image Source="/Resources/Icons/edit.png" 
+                                   Width="16" 
+                                   Height="16" 
+                                   Margin="0,0,5,0"/>
+                            
+                            <TextBlock Text="Editar" 
+                                       VerticalAlignment="Center"/>
+
+                        </StackPanel>
+                        
+                    </Button>
+
+                    <Button x:Name="btnSalvar"
+                            Width="110"
+                            Height="38"
+                            Margin="0,0,10,0"
+                            Foreground="#000"
+                            BorderThickness="0"
+                            Cursor="Hand" 
+                            Click="BtnSalvar_Click">
+
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+
+                            <Image Source="/Resources/Icons/save.png" 
+                                   Width="16" 
+                                   Height="16" 
+                                   Margin="0,0,5,0"/>
+
+                            <TextBlock Text="Salvar"
+                                       VerticalAlignment="Center"/>
+
+                        </StackPanel>
+                        
+                    </Button>
+
+                    <Button x:Name="btnExcluir" 
+                            Width="110"
+                            Height="38"
+                            Margin="0,0,10,0"
+                            Foreground="#000"
+                            BorderThickness="0"
+                            Cursor="Hand" 
+                            Click="btnExcluir_Click">
+
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                            
+                            <Image Source="/Resources/Icons/delete.png" 
+                                   Width="16" 
+                                   Height="16" 
+                                   Margin="0,0,5,0"/>
+                            
+                            <TextBlock Text="Excluir" 
+                                       VerticalAlignment="Center"/>
+
+                        </StackPanel>
+                        
+                    </Button>
+
+                    <Button Width="110"
+                            Height="38"
+                            Margin="0,0,10,0"
+                            Foreground="#000"
+                            BorderThickness="0"
+                            Cursor="Hand">
+
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                            <Image Source="/Resources/Icons/orders.png" 
+                                   Width="16" 
+                                   Height="16" 
+                                   Margin="0,0,5,0"/>
+
+                            <TextBlock Text="Incluir Pedido"
+                                       VerticalAlignment="Center"/>
+
+                        </StackPanel>
+                        
+                    </Button>
                 </StackPanel>
                 
                 <!-- DATAGRID -->

@@ -36,14 +36,21 @@ namespace challange_by_coodesh.Views
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtNome.Text) || string.IsNullOrWhiteSpace(txtCPF.Text))
+                if (string.IsNullOrWhiteSpace(txtNome.Text) || string.IsNullOrWhiteSpace(txtCPF.Text) || string.IsNullOrWhiteSpace(txtEndereco.Text))
                 {
-                    MessageBox.Show("Por favor, preencha todos os campos.");
+                    MessageBox.Show("Por favor, preencha todos os campos.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
                 if (!_pessoaService.IsCpfValido(txtCPF.Text)) {
-                    MessageBox.Show("CPF inválido. Por favor, insira um CPF válido.");
+                    MessageBox.Show("CPF inválido. Por favor, insira um CPF válido.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                bool cpfExistente = _pessoas.Any(p => p.CPF == txtCPF.Text);
+                if (cpfExistente)
+                {
+                    MessageBox.Show("CPF já cadastrado. Por favor, insira um CPF diferente.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
@@ -66,7 +73,7 @@ namespace challange_by_coodesh.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao incluir pessoa: {ex.Message}");
+                MessageBox.Show($"Erro ao incluir pessoa: {ex.Message}", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             
         }
@@ -124,22 +131,14 @@ namespace challange_by_coodesh.Views
 
                 btnEditar.IsEnabled = true;
                 btnExcluir.IsEnabled = true;
+                btnIncluir.IsEnabled = false;
 
-            } else
-            {
-                DesabilitarAcoes();
             }
         }
 
         private void BtnSalvar_Click(object sender, RoutedEventArgs e)
         {
             string id = txtId.Text;
-
-            if (!_pessoaService.IsCpfValido(txtCPF.Text))
-            {
-                MessageBox.Show("CPF inválido. Por favor, insira um CPF válido.");
-                return;
-            }
 
             var dadosAtualizados = _pessoas.FirstOrDefault(p => p.Id.ToString() == id);
 
@@ -151,20 +150,15 @@ namespace challange_by_coodesh.Views
                 _pessoaService.SavePessoas(_pessoas.ToList());
                 dgPessoa.Items.Refresh();
                 LimparCampos();
-                MessageBox.Show("Dados atualizados com sucesso!");
+                MessageBox.Show("Dados atualizados com sucesso!", "Informação", MessageBoxButton.OK, MessageBoxImage.Information);
                 btnIncluir.IsEnabled = true;
-                DesabilitarAcoes();
-            }
+                HabilitarAcoes();
+            } 
             else
             {
-                MessageBox.Show("Pessoa não encontrada para atualização.");
+                MessageBox.Show("Pessoa não encontrada para atualização.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
-
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-            
-        //}
 
         private void DesabilitarAcoes()
         {
@@ -176,6 +170,15 @@ namespace challange_by_coodesh.Views
             txtNome.IsEnabled = false;
             txtCPF.IsEnabled = false;
             txtEndereco.IsEnabled = false;
+
+            dgPessoa.SelectedItem = null;
+        }
+
+        private void HabilitarAcoes()
+        {
+            txtNome.IsEnabled = true;
+            txtCPF.IsEnabled = true;
+            txtEndereco.IsEnabled = true;
 
             dgPessoa.SelectedItem = null;
         }
@@ -194,7 +197,7 @@ namespace challange_by_coodesh.Views
             }
             else
             {
-                MessageBox.Show("Por favor, selecione uma pessoa para editar.");
+                MessageBox.Show("Por favor, selecione uma pessoa para editar.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
         }
@@ -203,18 +206,19 @@ namespace challange_by_coodesh.Views
         {
             if (dgPessoa.SelectedItem is Pessoa pessoaSelecionada)
             {
-                var resultado = MessageBox.Show($"Tem certeza que deseja excluir {pessoaSelecionada.Nome}?", "Confirmação de Exclusão", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                var resultado = MessageBox.Show($"Tem certeza que deseja excluir {pessoaSelecionada.Nome}?", "Confirmação de Exclusão", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (resultado == MessageBoxResult.Yes)
                 {
                     _pessoas.Remove(pessoaSelecionada);
                     _pessoaService.SavePessoas(_pessoas.ToList());
                     DesabilitarAcoes();
-                    MessageBox.Show("Pessoa excluída com sucesso!");
+                    btnIncluir.IsEnabled = true;
+                    MessageBox.Show("Pessoa excluída com sucesso!", "Informação", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             else
             {
-                MessageBox.Show("Por favor, selecione uma pessoa para excluir.");
+                MessageBox.Show("Por favor, selecione uma pessoa para excluir.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -240,7 +244,7 @@ namespace challange_by_coodesh.Views
 
             if (resultado.Count == 0)
             {
-                MessageBox.Show("Nenhuma pessoa encontrada com os critérios de pesquisa.");
+                MessageBox.Show("Nenhuma pessoa encontrada com os critérios de pesquisa.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
     }
