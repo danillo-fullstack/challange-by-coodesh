@@ -65,6 +65,7 @@ namespace challange_by_coodesh.Views
 
             _produtos.Add(produto);
             _produtoService.SaveProdutos(_produtos.ToList());
+            dgProdutos.Items.Refresh();
             LimparCampos();
 
         }
