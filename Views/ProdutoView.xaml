@@ -239,7 +239,7 @@
                             Height="35"
                             Margin="0,0,20,0"
                             Background="#E53E3E"
-                            Foreground="#FFF"/>
+                            Foreground="#FFF" Click="txtExcluirProduto_Click"/>
                 </StackPanel>
                 
                 <!-- Grid -->
@@ -250,7 +250,10 @@
                           IsReadOnly="True"
                           SelectionMode="Single"
                           SelectionUnit="FullRow"
-                          RowHeight="35" SelectionChanged="dgProdutos_SelectionChanged">
+                          RowHeight="35" 
+                          VerticalAlignment="Center"
+                          VerticalContentAlignment="Center"
+                          SelectionChanged="dgProdutos_SelectionChanged">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id"

@@ -149,5 +149,30 @@ namespace challange_by_coodesh.Views
             txtCodigoProduto.IsEnabled = true;
             txtValor.IsEnabled = true;
         }
+
+        private void txtExcluirProduto_Click(object sender, RoutedEventArgs e)
+        {
+            if (_produtoSelecionado == null)
+            {
+                MessageBox.Show("Selecione um produto para excluir.");
+                return;
+            }
+
+            var resultado = MessageBox.Show("Tem certeza que deseja excluir este produto?", "Confirmação", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (resultado != MessageBoxResult.Yes) 
+            {
+                return;
+            }
+
+            _produtos.Remove(_produtoSelecionado);
+            _produtoService.SaveProdutos(_produtos.ToList());
+            dgProdutos.Items.Refresh();
+            LimparCampos();
+            HabilitarCampos();
+            BtnIncluir.IsEnabled = true;
+            _produtoSelecionado = null;
+            MessageBox.Show("Produto excluído com sucesso!");
+        }
     }
 }
