@@ -5,8 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:challange_by_coodesh"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Sistema de pedidos" 
+        Height="450" 
+        Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="#F7FAFC" ResizeMode="NoResize" Icon="/Resources/Icons/logo-benner.png">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top"
+              Background="#2D3748"
+              Foreground="#FFF"
+              FontSize="14">
 
-    </Grid>
+            <MenuItem Header="Cadastro">
+                <MenuItem Header="Pessoa"
+                          Foreground="#2D3748"
+                          Click="MenuPessoa_Click"/>
+
+                <MenuItem Header="Produto"
+                          Foreground="#2D3748"
+                          Click="MenuProduto_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="37*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Sistema de pedidos"
+                       FontSize="32"
+                       FontWeight="Bold"
+                       Foreground="#2D3748"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" Grid.Column="1" Margin="194,0,0,0"/>
+        </Grid>
+    </DockPanel>
 </Window>

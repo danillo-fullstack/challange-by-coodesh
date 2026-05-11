@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using challange_by_coodesh.Views;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,18 @@ namespace challange_by_coodesh
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void MenuPessoa_Click(object sender, RoutedEventArgs e)
+        {
+            PessoaView pessoaView = new PessoaView();
+            pessoaView.ShowDialog();
+        }
+
+        private void MenuProduto_Click(object sender, RoutedEventArgs e)
+        {
+            ProdutoView produtoView = new ProdutoView();
+            produtoView.ShowDialog();
         }
     }
 }
