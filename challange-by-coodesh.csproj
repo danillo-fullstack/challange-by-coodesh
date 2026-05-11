@@ -14,11 +14,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Data\Pessoa.json" />
+    <Content Include="Data\Pessoa.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Data\Produto.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
