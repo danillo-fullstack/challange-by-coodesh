@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Cadastro de Pessoa" Height="720" Width="1200"
         WindowStartupLocation="CenterScreen"
-        Background="#F5F7FA">
+        Background="#F5F7FA" Icon="/Resources/Icons/logo-benner.png">
     
     <Grid Margin="20">
 
