@@ -174,5 +174,68 @@ namespace challange_by_coodesh.Views
             _produtoSelecionado = null;
             MessageBox.Show("Produto excluído com sucesso!");
         }
+
+        private void BtnPesquisarProduto_Click(object sender, RoutedEventArgs e)
+        {
+            var produtos = _produtoService.GetProdutos();
+            var query = produtos.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(txtFiltrarNomeProduto.Text))
+            {
+                query = query.Where(p => p.Nome.Contains(txtFiltrarNomeProduto.Text, StringComparison.OrdinalIgnoreCase));
+            }
+
+            if (!string.IsNullOrWhiteSpace(txtFiltrarCodigoProduto.Text))
+            {
+                query = query.Where(p => p.CodigoProduto.Contains(txtFiltrarCodigoProduto.Text, StringComparison.OrdinalIgnoreCase));
+            }
+
+            bool valorInicialPreenchido = !string.IsNullOrWhiteSpace(txtFiltrarValorInicial.Text);
+            bool valorFinalPreenchido = !string.IsNullOrWhiteSpace(txtFiltrarValorFinal.Text);
+
+            if (valorInicialPreenchido && !valorFinalPreenchido)
+            {
+                MessageBox.Show("Preencha o valor final para filtrar por valor.", "Validação", MessageBoxButton.OK, MessageBoxImage.Warning);
+                txtFiltrarValorFinal.Focus();
+                return;
+            }
+
+            if (valorInicialPreenchido && valorFinalPreenchido)
+            {
+                decimal valorInicial;
+                decimal valorFinal;
+
+                bool valorInicialValido = decimal.TryParse(txtFiltrarValorInicial.Text, out valorInicial);
+                bool valorFinalValido = decimal.TryParse(txtFiltrarValorFinal.Text, out valorFinal);
+
+                if (!valorInicialValido)
+                {
+                    MessageBox.Show("Valor inicial deve ser um número válido.", "Validação", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    txtFiltrarValorInicial.Clear();
+                    txtFiltrarValorInicial.Focus();
+                    return;
+                }
+
+                if (!valorFinalValido)
+                {
+                    MessageBox.Show("Valor final deve ser um número válido.", "Validação", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    txtFiltrarValorFinal.Clear();
+                    txtFiltrarValorFinal.Focus();
+                    return;
+                }
+
+                if (valorFinal < valorInicial) 
+                {
+                    MessageBox.Show("Valor final deve ser maior ou igual ao valor inicial.", "Validação", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    txtFiltrarValorFinal.Clear();
+                    txtFiltrarValorFinal.Focus();
+                    return;
+                }
+
+                query = query.Where(p => p.Valor >= valorInicial && p.Valor <= valorFinal);
+
+            }
+                dgProdutos.ItemsSource = new ObservableCollection<Produto>(query.ToList());
+        }
     }
 }

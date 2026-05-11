@@ -14,7 +14,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <!-- HEADER -->
 
         <Border Grid.Row="0"
@@ -22,13 +22,13 @@
                 CornerRadius="12"
                 Padding="20"
                 Margin="0,0,0,20">
-            
+
             <TextBlock Text="Cadastro de Produtos"
                        FontSize="20"
                        FontWeight="SemiBold"
                        TextAlignment="Center"/>
         </Border>
-        
+
         <!-- FORM -->
         <Border Grid.Row="1"
                 Background="#FFF"
@@ -47,7 +47,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="70"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="70"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="70"/>
                     <ColumnDefinition Width="*"/>
@@ -79,39 +79,41 @@
                 <TextBox x:Name="txtNome"
                          Grid.Row="1"
                          Grid.Column="1"
+                         Grid.ColumnSpan="3"
                          VerticalContentAlignment="Center"
                          Height="35"
-                         Margin="0,0,20,15"/>
+                         Margin="0,0,170,15"/>
 
                 <!-- Codigo -->
                 <TextBlock Grid.Row="1"
-                           Grid.Column="2"
+                           Grid.Column="3"
                            Text="Código Produto"
-                           VerticalAlignment="Center"
+                           VerticalAlignment="Top"
                            FontWeight="SemiBold"
-                           Margin="0,0,10,15"/>
+                           Margin="140,10,70,0"/>
                 <TextBox x:Name="txtCodigoProduto"
                          Grid.Row="1"
                          Grid.Column="3"
                          Height="35"
                          VerticalContentAlignment="Center"
-                         Margin="0,0,0,15"/>
+                         Margin="240,0,200,15" 
+                         Grid.ColumnSpan="3"/>
 
                 <!--Valor-->
                 <TextBlock Grid.Row="1"
-                           Grid.Column="4"
+                           Grid.Column="5"
                            Text="Valor"
                            TextAlignment="Center"
-                           VerticalAlignment="Center"
+                           VerticalAlignment="Top"
                            FontWeight="SemiBold"
-                           Margin="0,0,10,15"/>
+                           Margin="104,10,138,0" RenderTransformOrigin="3.422,0.622"/>
 
                 <TextBox x:Name="txtValor"
                          Grid.Row="1"
                          Grid.Column="5"
                          Height="35"
                          VerticalContentAlignment="Center"
-                         Margin="0,0,20,15" PreviewTextInput="txtValor_PreviewTextInput"/>
+                         Margin="165,0,20,15" PreviewTextInput="txtValor_PreviewTextInput"/>
 
                 <!-- Filtro -->
                 <StackPanel Grid.Row="3" 
@@ -163,6 +165,7 @@
                              Margin="0,0,10,0"
                              VerticalContentAlignment="Center"
                              BorderBrush="#CBD5E0"  
+                             PreviewTextInput="txtValor_PreviewTextInput"
                              ToolTip="Pesquisar por valor inicial"/>
 
                     <TextBlock Text="Valor Final" 
@@ -176,6 +179,7 @@
                              Margin="0,0,10,0"
                              VerticalContentAlignment="Center"
                              BorderBrush="#CBD5E0"  
+                             PreviewTextInput="txtValor_PreviewTextInput"
                              ToolTip="Pesquisar por valor final"/>
 
                     <Button x:Name="BtnPesquisarProduto" Content="Pesquisar" 
@@ -185,12 +189,12 @@
                             Foreground="#FFF" 
                             BorderBrush="#3182CE"
                             BorderThickness="0" 
-                            Cursor="Hand"/>
+                            Cursor="Hand" Click="BtnPesquisarProduto_Click"/>
                 </StackPanel>
 
             </Grid>
         </Border>
-        
+
         <!-- GRID -->
         <Border Grid.Row="2"
                 Background="#FFF"
@@ -202,7 +206,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                
+
                 <!--Buttons -->
                 <StackPanel Grid.Row="0"
                             Orientation="Horizontal"
@@ -241,7 +245,7 @@
                             Background="#E53E3E"
                             Foreground="#FFF" Click="txtExcluirProduto_Click"/>
                 </StackPanel>
-                
+
                 <!-- Grid -->
                 <DataGrid x:Name="dgProdutos"
                           Grid.Row="1"
@@ -250,14 +254,16 @@
                           IsReadOnly="True"
                           SelectionMode="Single"
                           SelectionUnit="FullRow"
-                          RowHeight="35" 
-                          VerticalAlignment="Center"
-                          VerticalContentAlignment="Center"
+                          RowHeight="30"
+                          FontSize="14"
+                          BorderThickness="0"
+                          CanUserResizeColumns="False"
+                          CanUserResizeRows="False"
                           SelectionChanged="dgProdutos_SelectionChanged">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id"
-                                            Width="100"
+                                            Width="70"
                                             Binding="{Binding Id}"/>
 
                         <DataGridTextColumn Header="Nome"
@@ -265,14 +271,14 @@
                                             Binding="{Binding Nome}"/>
 
                         <DataGridTextColumn Header="Código"
-                                            Width="200"
+                                            Width="220"
                                             Binding="{Binding CodigoProduto}"/>
 
                         <DataGridTextColumn Header="Valor"
                                             Width="150"
                                             Binding="{Binding Valor}"/>
                     </DataGrid.Columns>
-                    
+
                 </DataGrid>
             </Grid>
         </Border>

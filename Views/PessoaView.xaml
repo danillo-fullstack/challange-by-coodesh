@@ -238,6 +238,8 @@
                           AutoGenerateColumns="False"
                           CanUserAddRows="False"
                           HeadersVisibility="Column"
+                          CanUserResizeColumns="False"
+                          CanUserResizeRows="False"
                           RowHeight="35"
                           FontSize="14"
                           IsReadOnly="True"
