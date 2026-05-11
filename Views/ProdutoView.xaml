@@ -209,7 +209,7 @@
                             HorizontalAlignment="Right"
                             Margin="0,0,0,20">
 
-                    <Button x:Name="txtIncluir"
+                    <Button x:Name="BtnIncluir"
                             Content="Incluir"
                             Width="110"
                             Height="35"
@@ -223,7 +223,7 @@
                             Height="35"
                             Margin="0,0,10,0"
                             Background="#DD6B20"
-                            Foreground="#FFF"/>
+                            Foreground="#FFF" Click="txtEditarProduto_Click"/>
 
                     <Button x:Name="txtSalvarProduto"
                             Content="Salvar"
@@ -231,7 +231,7 @@
                             Height="35"
                             Margin="0,0,10,0"
                             Background="#3182CE"
-                            Foreground="#FFF"/>
+                            Foreground="#FFF" Click="txtSalvarProduto_Click"/>
 
                     <Button x:Name="txtExcluirProduto"
                             Content="Excluir"
@@ -250,7 +250,7 @@
                           IsReadOnly="True"
                           SelectionMode="Single"
                           SelectionUnit="FullRow"
-                          RowHeight="35">
+                          RowHeight="35" SelectionChanged="dgProdutos_SelectionChanged">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id"

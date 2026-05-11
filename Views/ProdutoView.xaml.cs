@@ -23,6 +23,7 @@ namespace challange_by_coodesh.Views
     {
         private readonly ProdutoService _produtoService;
         private ObservableCollection<Produto> _produtos;
+        private Produto? _produtoSelecionado;
 
         public ProdutoView()
         {
@@ -80,6 +81,73 @@ namespace challange_by_coodesh.Views
         {
             Regex regex = new Regex("[^0-9.,]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void dgProdutos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dgProdutos.SelectedItem is Produto produto)
+            {
+                _produtoSelecionado = produto;
+                txtId.Text = produto.Id.ToString();
+                txtNome.Text = produto.Nome;
+                txtCodigoProduto.Text = produto.CodigoProduto;
+                txtValor.Text = produto.Valor.ToString("F2");
+                BtnIncluir.IsEnabled = false;
+                BloquearCampos();
+            }
+        }
+
+        private void txtEditarProduto_Click(object sender, RoutedEventArgs e)
+        {
+            if (_produtoSelecionado == null)
+            {
+                MessageBox.Show("Selecione um produto para editar.");
+                return;
+            }
+
+            HabilitarCampos();
+
+            BtnIncluir.IsEnabled = false;
+        }
+
+        private void txtSalvarProduto_Click(object sender, RoutedEventArgs e)
+        {
+            if (_produtoSelecionado == null)
+            {
+                MessageBox.Show("Selecione um produto para salvar.");
+                return;
+            }
+
+            decimal valor;
+
+            if (!decimal.TryParse(txtValor.Text, out valor))
+            {
+                MessageBox.Show("Valor deve ser um número válido.");
+                return;
+            }
+
+            _produtoSelecionado.Nome = txtNome.Text;
+            _produtoSelecionado.CodigoProduto = txtCodigoProduto.Text;
+            _produtoSelecionado.Valor = valor;
+            dgProdutos.Items.Refresh();
+            _produtoService.SaveProdutos(_produtos.ToList());
+            BtnIncluir.IsEnabled = true;
+            MessageBox.Show("Produto atualizado com sucesso!");
+            LimparCampos();
+        }
+
+        private void BloquearCampos()
+        {
+            txtNome.IsEnabled = false;
+            txtCodigoProduto.IsEnabled = false;
+            txtValor.IsEnabled = false;
+        }
+
+        private void HabilitarCampos()
+        {
+            txtNome.IsEnabled = true;
+            txtCodigoProduto.IsEnabled = true;
+            txtValor.IsEnabled = true;
         }
     }
 }
