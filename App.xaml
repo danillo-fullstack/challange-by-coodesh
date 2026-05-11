@@ -2,7 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:challange_by_coodesh"
-             StartupUri="Views/PessoaView.xaml">
+             StartupUri="Views/ProdutoView.xaml">
     <Application.Resources>
          
     </Application.Resources>
