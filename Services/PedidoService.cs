@@ -39,5 +39,25 @@ namespace challange_by_coodesh.Services
             File.WriteAllText(_filePath, json);
         }
 
+        public int GerarNovoId() 
+        {
+            List<Pedido> pedidos = GetPedidos();
+            if(pedidos.Count == 0)
+            {
+                return 1;
+            }
+
+            return pedidos.Max(p => p.Id) + 1;
+        }
+
+        public void AdicionarPedido(Pedido pedido)
+        {
+            List<Pedido> pedidos = GetPedidos();
+            pedidos.Add(pedido);
+
+            string json = JsonSerializer.Serialize(pedidos, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(_filePath, json);
+        }
+
     }
 }

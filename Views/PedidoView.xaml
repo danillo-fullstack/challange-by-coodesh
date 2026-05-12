@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Cadastro de Pedidos"
-        Height="850"
+        Height="1200"
         Width="1450"
         WindowStartupLocation="CenterScreen"
         Background="#F7FAFC" ResizeMode="NoResize" WindowState="Maximized" Icon="/Resources/Icons/logo-benner.png">
@@ -376,29 +376,18 @@
                                     <ComboBoxItem Content="Entregue"/>
                                 </ComboBox>
                             </DataTemplate>
+
                         </DataGridTemplateColumn.CellTemplate>
 
                     </DataGridTemplateColumn>
-
-                    <!-- Ações -->
-
                     <DataGridTemplateColumn Header="Ações"
-                                            Width="220">
+                            Width="140">
 
                         <DataGridTemplateColumn.CellTemplate>
-
                             <DataTemplate>
 
                                 <StackPanel Orientation="Horizontal"
-                                            HorizontalAlignment="Center">
-                                    <Button Content="Atualizar"
-                                            Width="90"
-                                            Height="30"
-                                            Background="#3182CE"
-                                            Foreground="White"
-                                            FontWeight="SemiBold"
-                                            Margin="10,0,10,0"
-                                            Click="btnAtualizarItem_Click"/>
+                            HorizontalAlignment="Center">
 
                                     <Button Content="Remover"
                                             Width="90"
@@ -409,9 +398,8 @@
                                             Click="btnRemoverItem_Click"/>
 
                                 </StackPanel>
-                                
-                            </DataTemplate>
 
+                            </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
 
                     </DataGridTemplateColumn>
@@ -451,7 +439,7 @@
                     Height="42"
                     Background="#38A169"
                     Foreground="White"
-                    FontWeight="Bold"/>
+                    FontWeight="Bold" Click="btnFinalizarPedido_Click"/>
 
         </StackPanel>
 
@@ -492,7 +480,7 @@
                     <DataGrid.Columns>
 
                         <DataGridTextColumn Header="Data Venda"
-                                            Binding="{Binding DataVenda}"
+                                            Binding="{Binding DataVenda, StringFormat=dd/MM/yyyy}"
                                             Width="150"/>
 
                         <DataGridTextColumn Header="Valor Total"
@@ -509,11 +497,6 @@
                                             Binding="{Binding Status}"
                                             Width="120"/>
 
-                        <!-- SITUAÇÃO -->
-
-                        <DataGridTextColumn Header="Situação"
-                                            Binding="{Binding Situacao}"
-                                            Width="140"/>
 
                         <!-- AÇÕES STATUS -->
 
@@ -539,23 +522,27 @@
 
                         </DataGridTemplateColumn>
 
-                        <!-- AÇÕES SITUAÇÃO -->
+                        <!-- Ações -->
 
-                        <DataGridTemplateColumn Header="Entrega"
-                                                Width="180">
+                        <DataGridTemplateColumn Header="Ações"
+                        Width="220">
 
                             <DataGridTemplateColumn.CellTemplate>
 
                                 <DataTemplate>
 
-                                    <ComboBox Width="150"
-                                              Height="28"
-                                              SelectionChanged="cbSituacao_SelectionChanged">
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Center">
+                                        <Button Content="Atualizar"
+                                                Width="90"
+                                                Height="30"
+                                                Background="#3182CE"
+                                                Foreground="White"
+                                                FontWeight="SemiBold"
+                                                Margin="10,0,10,0"
+                                                Click="btnAtualizarItem_Click"/>
 
-                                        <ComboBoxItem Content="Enviado"/>
-                                        <ComboBoxItem Content="Recebido"/>
-
-                                    </ComboBox>
+                                    </StackPanel>
 
                                 </DataTemplate>
 

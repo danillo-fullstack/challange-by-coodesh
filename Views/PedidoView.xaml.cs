@@ -22,6 +22,7 @@ namespace challange_by_coodesh.Views
         private Pessoa _pessoa;
         private ProdutoService _produtoService;
         private List<ItemPedido> _itensPedido = new List<ItemPedido>();
+        private PedidoService _pedidoService = new PedidoService();
 
         public PedidoView(Pessoa pessoa)
         {
@@ -32,11 +33,20 @@ namespace challange_by_coodesh.Views
                 _produtoService = new ProdutoService();
                 CarregarDadosPessoa();
                 CarregarProdutos();
+                CarregaHistoricoPedidos();
+                GerarPedidoId();
             }
             catch (Exception ex) 
             { 
                 MessageBox.Show($"Ocorreu um erro ao carregar os dados do pedido: {ex.Message}", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void GerarPedidoId()
+        {
+            int novoId = _pedidoService.GerarNovoId();
+            txtPedidoId.Text = novoId.ToString();
+            txtDataVenda.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
         private void CarregarDadosPessoa()
@@ -51,7 +61,6 @@ namespace challange_by_coodesh.Views
             cbProdutos.ItemsSource = _produtoService.GetProdutos();
             cbProdutos.DisplayMemberPath = "ProdutoDescricao";
             cbProdutos.SelectedValuePath = "Id";
-            txtDataVenda.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
         private void btnAtualizarItem_Click(object sender, RoutedEventArgs e)
@@ -124,6 +133,61 @@ namespace challange_by_coodesh.Views
         {
             decimal total = _itensPedido.Sum(item => item.ValorTotal);
             txtValorTotal.Text = total.ToString("C");
+        }
+
+        private void btnFinalizarPedido_Click(object sender, RoutedEventArgs e)
+        {
+            if (_itensPedido.Count == 0)
+            {
+                MessageBox.Show("Adicione pelo menos um produto ao pedido.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (cbFormaPagamento.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione uma forma de pagamento.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            decimal total = _itensPedido.Sum(item => item.ValorTotal);
+
+            ComboBoxItem formaPagamentoItem = (ComboBoxItem)cbFormaPagamento.SelectedItem;
+
+            Pedido pedido = new Pedido
+            {
+                Id = int.Parse(txtPedidoId.Text),
+                PessoaId = _pessoa.Id,
+                NomePessoa = _pessoa.Nome,
+                Itens = _itensPedido,
+                ValorTotal = total,
+                DataVenda = DateTime.Now,
+                FormaPagamento = formaPagamentoItem.Content.ToString() ?? string.Empty,
+                Status = "Pendente"
+            };
+
+            _pedidoService.AdicionarPedido(pedido);
+            MessageBox.Show("Pedido finalizado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            CarregaHistoricoPedidos();
+            LimparPedido();
+        }
+
+        private void LimparPedido()
+        {
+            _itensPedido.Clear();
+            dgItensPedido.ItemsSource = null;
+            txtValorTotal.Text = "R$ 0,00";
+            cbFormaPagamento.SelectedIndex = -1;
+            txtQuantidade.Clear();
+            cbFormaPagamento.SelectedIndex = -1;
+            GerarPedidoId();
+        }
+
+        private void CarregaHistoricoPedidos()
+        {
+            List<Pedido> pedidos = _pedidoService.GetPedidos().Where(p => p.PessoaId == _pessoa.Id).ToList();
+            dgHistoricoPedidos.ItemsSource = null;
+            dgHistoricoPedidos.ItemsSource = pedidos;
         }
     }
 }
