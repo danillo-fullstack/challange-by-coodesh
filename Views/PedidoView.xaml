@@ -1,0 +1,538 @@
+﻿<Window x:Class="challange_by_coodesh.Views.PedidoView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cadastro de Pedidos"
+        Height="850"
+        Width="1450"
+        WindowStartupLocation="CenterScreen"
+        Background="#F7FAFC">
+
+    <Grid Margin="20">
+
+        <Grid.RowDefinitions>
+
+            <!-- TÍTULO -->
+            <RowDefinition Height="Auto"/>
+
+            <!-- CLIENTE -->
+            <RowDefinition Height="Auto"/>
+
+            <!-- PEDIDO -->
+            <RowDefinition Height="Auto"/>
+
+            <!-- GRID ITENS -->
+            <RowDefinition Height="260"/>
+
+            <!-- TOTAL -->
+            <RowDefinition Height="Auto"/>
+
+            <!-- HISTÓRICO -->
+            <RowDefinition Height="300"/>
+
+        </Grid.RowDefinitions>
+
+        <!-- ===================================================== -->
+        <!-- TÍTULO -->
+        <!-- ===================================================== -->
+
+        <Grid Grid.Row="0"
+              Margin="0,0,0,25">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="1"
+                       Text="Cadastro de Pedidos"
+                       FontSize="30"
+                       FontWeight="Bold"
+                       Foreground="#2D3748"
+                       HorizontalAlignment="Center"/>
+
+        </Grid>
+
+        <!-- ===================================================== -->
+        <!-- DADOS CLIENTE -->
+        <!-- ===================================================== -->
+
+        <Border Grid.Row="1"
+                Background="White"
+                CornerRadius="10"
+                Padding="20"
+                Margin="0,0,0,20"
+                BorderBrush="#E2E8F0"
+                BorderThickness="1">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- TÍTULO -->
+
+                <TextBlock Text="Dados do Cliente"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="#2D3748"
+                           Margin="0,0,0,20"/>
+
+                <!-- CAMPOS -->
+
+                <Grid Grid.Row="1">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- ID -->
+
+                    <StackPanel Margin="0,0,20,0">
+
+                        <TextBlock Text="Id Cliente"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,5"/>
+
+                        <TextBox x:Name="txtClienteId"
+                                 Height="35"
+                                 IsReadOnly="True"
+                                 Background="#EDF2F7"
+                                 BorderBrush="#CBD5E0"/>
+
+                    </StackPanel>
+
+                    <!-- NOME -->
+
+                    <StackPanel Grid.Column="1"
+                                Margin="0,0,20,0">
+
+                        <TextBlock Text="Nome"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,5"/>
+
+                        <TextBox x:Name="txtClienteNome"
+                                 Height="35"
+                                 IsReadOnly="True"
+                                 Background="#EDF2F7"
+                                 BorderBrush="#CBD5E0"/>
+
+                    </StackPanel>
+
+                    <!-- CPF -->
+
+                    <StackPanel Grid.Column="2">
+
+                        <TextBlock Text="CPF"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,5"/>
+
+                        <TextBox x:Name="txtClienteCpf"
+                                 Height="35"
+                                 IsReadOnly="True"
+                                 Background="#EDF2F7"
+                                 BorderBrush="#CBD5E0"/>
+
+                    </StackPanel>
+
+                </Grid>
+
+            </Grid>
+
+        </Border>
+
+        <!-- ===================================================== -->
+        <!-- DADOS PEDIDO + PRODUTOS -->
+        <!-- ===================================================== -->
+
+        <Border Grid.Row="2"
+                Background="White"
+                CornerRadius="10"
+                Padding="20"
+                Margin="0,0,0,20"
+                BorderBrush="#E2E8F0"
+                BorderThickness="1">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- TÍTULO -->
+
+                <TextBlock Text="Dados do Pedido"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="#2D3748"
+                           Margin="0,0,0,20"/>
+
+                <!-- DADOS PEDIDO -->
+
+                <Grid Grid.Row="1"
+                      Margin="0,0,0,25">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- ID PEDIDO -->
+
+                    <StackPanel Margin="0,0,20,0">
+
+                        <TextBlock Text="Id Pedido"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,5"/>
+
+                        <TextBox x:Name="txtPedidoId"
+                                 Height="35"
+                                 IsReadOnly="True"
+                                 Background="#EDF2F7"
+                                 BorderBrush="#CBD5E0"/>
+
+                    </StackPanel>
+
+                    <!-- DATA -->
+
+                    <StackPanel Grid.Column="1"
+                                Margin="0,0,20,0">
+
+                        <TextBlock Text="Data Venda"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,5"/>
+
+                        <TextBox x:Name="txtDataVenda"
+                                 Height="35"
+                                 IsReadOnly="True"
+                                 Background="#EDF2F7"
+                                 BorderBrush="#CBD5E0"/>
+
+                    </StackPanel>
+
+                    <!-- PAGAMENTO -->
+
+                    <StackPanel Grid.Column="2"
+                                Margin="0,0,20,0">
+
+                        <TextBlock Text="Forma de Pagamento"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,5"/>
+
+                        <ComboBox x:Name="cbFormaPagamento"
+                                  Height="35"
+                                  BorderBrush="#CBD5E0">
+
+                            <ComboBoxItem Content="Dinheiro"/>
+                            <ComboBoxItem Content="Cartão"/>
+                            <ComboBoxItem Content="Boleto"/>
+
+                        </ComboBox>
+
+                    </StackPanel>
+
+                    <!-- TOTAL -->
+
+                    <StackPanel Grid.Column="3">
+
+                        <TextBlock Text="Valor Total"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,5"/>
+
+                        <TextBox x:Name="txtValorTotalPedido"
+                                 Text="R$ 0,00"
+                                 Height="35"
+                                 IsReadOnly="True"
+                                 FontWeight="Bold"
+                                 Foreground="#38A169"
+                                 Background="#EDF2F7"
+                                 BorderBrush="#CBD5E0"/>
+
+                    </StackPanel>
+
+                </Grid>
+
+                <!-- PRODUTOS -->
+
+                <Grid Grid.Row="2">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- PRODUTO -->
+
+                    <StackPanel Margin="0,0,20,0">
+
+                        <TextBlock Text="Produto"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,5"/>
+
+                        <ComboBox x:Name="cbProdutos"
+                                  Height="35"
+                                  BorderBrush="#CBD5E0"/>
+
+                    </StackPanel>
+
+                    <!-- QUANTIDADE -->
+
+                    <StackPanel Grid.Column="1"
+                                Margin="0,0,20,0">
+
+                        <TextBlock Text="Quantidade"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,5"/>
+
+                        <TextBox x:Name="txtQuantidade"
+                                 Height="35"
+                                 BorderBrush="#CBD5E0"
+                                 VerticalContentAlignment="Center"
+                                 TextAlignment="Center"/>
+
+                    </StackPanel>
+
+                    <!-- BOTÃO -->
+
+                    <Button x:Name="btnAdicionarProduto"
+                            Grid.Column="2"
+                            Content="Adicionar Produto"
+                            Width="180"
+                            Height="35"
+                            Margin="0,24,0,0"
+                            Background="#3182CE"
+                            Foreground="White"
+                            FontWeight="Bold"/>
+
+                </Grid>
+
+            </Grid>
+
+        </Border>
+
+        <!-- ===================================================== -->
+        <!-- GRID ITENS -->
+        <!-- ===================================================== -->
+
+        <Border Grid.Row="3"
+                Background="White"
+                CornerRadius="10"
+                Padding="10"
+                Margin="0,0,0,20"
+                BorderBrush="#E2E8F0"
+                BorderThickness="1">
+
+            <DataGrid x:Name="dgItensPedido"
+                      AutoGenerateColumns="False"
+                      CanUserAddRows="False"
+                      IsReadOnly="True"
+                      RowHeight="35">
+
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="Produto"
+                                        Binding="{Binding NomeProduto}"
+                                        Width="*"/>
+
+                    <DataGridTextColumn Header="Quantidade"
+                                        Binding="{Binding Quantidade}"
+                                        Width="120"/>
+
+                    <DataGridTextColumn Header="Valor Unitário"
+                                        Binding="{Binding ValorUnitario}"
+                                        Width="150"/>
+
+                    <DataGridTextColumn Header="Subtotal"
+                                        Binding="{Binding Subtotal}"
+                                        Width="150"/>
+
+                    <!-- REMOVER -->
+
+                    <DataGridTemplateColumn Header="Remover"
+                                            Width="120">
+
+                        <DataGridTemplateColumn.CellTemplate>
+
+                            <DataTemplate>
+
+                                <Button Content="Remover"
+                                        Width="90"
+                                        Height="28"
+                                        Background="#E53E3E"
+                                        Foreground="White"
+                                        FontWeight="SemiBold"
+                                        Click="btnRemoverItem_Click"/>
+
+                            </DataTemplate>
+
+                        </DataGridTemplateColumn.CellTemplate>
+
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+        </Border>
+
+        <!-- ===================================================== -->
+        <!-- TOTAL + FINALIZAR -->
+        <!-- ===================================================== -->
+
+        <StackPanel Grid.Row="4"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,0,20">
+
+            <TextBlock Text="Valor Total:"
+                       FontSize="22"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"
+                       Margin="0,0,10,0"/>
+
+            <TextBlock x:Name="txtValorTotal"
+                       Text="R$ 0,00"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Foreground="#38A169"
+                       VerticalAlignment="Center"
+                       Margin="0,0,30,0"/>
+
+            <Button x:Name="btnFinalizarPedido"
+                    Content="Finalizar Pedido"
+                    Width="200"
+                    Height="42"
+                    Background="#38A169"
+                    Foreground="White"
+                    FontWeight="Bold"/>
+
+        </StackPanel>
+
+        <!-- ===================================================== -->
+        <!-- HISTÓRICO -->
+        <!-- ===================================================== -->
+
+        <Border Grid.Row="5"
+                Background="White"
+                CornerRadius="10"
+                Padding="10"
+                BorderBrush="#E2E8F0"
+                BorderThickness="1">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- TÍTULO -->
+
+                <TextBlock Text="Histórico de Pedidos"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="#2D3748"
+                           Margin="0,0,0,15"/>
+
+                <!-- GRID -->
+
+                <DataGrid x:Name="dgHistoricoPedidos"
+                          Grid.Row="1"
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          RowHeight="35">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="Data Venda"
+                                            Binding="{Binding DataVenda}"
+                                            Width="150"/>
+
+                        <DataGridTextColumn Header="Valor Total"
+                                            Binding="{Binding ValorTotal}"
+                                            Width="150"/>
+
+                        <DataGridTextColumn Header="Pagamento"
+                                            Binding="{Binding FormaPagamento}"
+                                            Width="150"/>
+
+                        <!-- STATUS -->
+
+                        <DataGridTextColumn Header="Status"
+                                            Binding="{Binding Status}"
+                                            Width="120"/>
+
+                        <!-- SITUAÇÃO -->
+
+                        <DataGridTextColumn Header="Situação"
+                                            Binding="{Binding Situacao}"
+                                            Width="140"/>
+
+                        <!-- AÇÕES STATUS -->
+
+                        <DataGridTemplateColumn Header="Pagamento"
+                                                Width="180">
+
+                            <DataGridTemplateColumn.CellTemplate>
+
+                                <DataTemplate>
+
+                                    <ComboBox Width="150"
+                                              Height="28"
+                                              SelectionChanged="cbStatus_SelectionChanged">
+
+                                        <ComboBoxItem Content="Pendente"/>
+                                        <ComboBoxItem Content="Pago"/>
+
+                                    </ComboBox>
+
+                                </DataTemplate>
+
+                            </DataGridTemplateColumn.CellTemplate>
+
+                        </DataGridTemplateColumn>
+
+                        <!-- AÇÕES SITUAÇÃO -->
+
+                        <DataGridTemplateColumn Header="Entrega"
+                                                Width="180">
+
+                            <DataGridTemplateColumn.CellTemplate>
+
+                                <DataTemplate>
+
+                                    <ComboBox Width="150"
+                                              Height="28"
+                                              SelectionChanged="cbSituacao_SelectionChanged">
+
+                                        <ComboBoxItem Content="Enviado"/>
+                                        <ComboBoxItem Content="Recebido"/>
+
+                                    </ComboBox>
+
+                                </DataTemplate>
+
+                            </DataGridTemplateColumn.CellTemplate>
+
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</Window>

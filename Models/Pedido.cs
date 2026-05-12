@@ -15,6 +15,8 @@ namespace challange_by_coodesh.Models
         public string FormaPagamento { get; set; }
         public string Status { get; set; }
 
+        public string Situacao { get; set; }
+
         public Pedido()
         {
             Itens = new List<PedidoItem>();
