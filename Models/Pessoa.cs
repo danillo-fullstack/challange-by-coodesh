@@ -4,7 +4,7 @@ using System.Text;
 
 namespace challange_by_coodesh.Models
 {
-    class Pessoa
+    public class Pessoa
     {
         public int Id { get; set; }
         public string Nome { get; set; } = string.Empty;

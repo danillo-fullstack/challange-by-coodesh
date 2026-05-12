@@ -5,7 +5,7 @@
         Height="850"
         Width="1450"
         WindowStartupLocation="CenterScreen"
-        Background="#F7FAFC">
+        Background="#F7FAFC" ResizeMode="NoResize" WindowState="Maximized" Icon="/Resources/Icons/logo-benner.png">
 
     <Grid Margin="20">
 
@@ -102,7 +102,9 @@
                                  Height="35"
                                  IsReadOnly="True"
                                  Background="#EDF2F7"
-                                 BorderBrush="#CBD5E0"/>
+                                 BorderBrush="#CBD5E0"
+                                 VerticalAlignment="Center"
+                                 VerticalContentAlignment="Center"/>
 
                     </StackPanel>
 
@@ -119,7 +121,9 @@
                                  Height="35"
                                  IsReadOnly="True"
                                  Background="#EDF2F7"
-                                 BorderBrush="#CBD5E0"/>
+                                 BorderBrush="#CBD5E0"
+                                 VerticalAlignment="Center"
+                                 VerticalContentAlignment="Center"/>
 
                     </StackPanel>
 
@@ -135,7 +139,9 @@
                                  Height="35"
                                  IsReadOnly="True"
                                  Background="#EDF2F7"
-                                 BorderBrush="#CBD5E0"/>
+                                 BorderBrush="#CBD5E0"
+                                 VerticalAlignment="Center"
+                                 VerticalContentAlignment="Center"/>
 
                     </StackPanel>
 
@@ -197,7 +203,9 @@
                                  Height="35"
                                  IsReadOnly="True"
                                  Background="#EDF2F7"
-                                 BorderBrush="#CBD5E0"/>
+                                 BorderBrush="#CBD5E0"
+                                 VerticalAlignment="Center"
+                                 VerticalContentAlignment="Center"/>
 
                     </StackPanel>
 
@@ -214,7 +222,9 @@
                                  Height="35"
                                  IsReadOnly="True"
                                  Background="#EDF2F7"
-                                 BorderBrush="#CBD5E0"/>
+                                 BorderBrush="#CBD5E0"
+                                 VerticalAlignment="Center"
+                                 VerticalContentAlignment="Center"/>
 
                     </StackPanel>
 
@@ -229,7 +239,9 @@
 
                         <ComboBox x:Name="cbFormaPagamento"
                                   Height="35"
-                                  BorderBrush="#CBD5E0">
+                                  BorderBrush="#CBD5E0"
+                                  VerticalAlignment="Center"
+                                  VerticalContentAlignment="Center">
 
                             <ComboBoxItem Content="Dinheiro"/>
                             <ComboBoxItem Content="Cartão"/>
@@ -241,22 +253,7 @@
 
                     <!-- TOTAL -->
 
-                    <StackPanel Grid.Column="3">
-
-                        <TextBlock Text="Valor Total"
-                                   FontWeight="SemiBold"
-                                   Margin="0,0,0,5"/>
-
-                        <TextBox x:Name="txtValorTotalPedido"
-                                 Text="R$ 0,00"
-                                 Height="35"
-                                 IsReadOnly="True"
-                                 FontWeight="Bold"
-                                 Foreground="#38A169"
-                                 Background="#EDF2F7"
-                                 BorderBrush="#CBD5E0"/>
-
-                    </StackPanel>
+                    <StackPanel Grid.Column="3"/>
 
                 </Grid>
 
@@ -280,7 +277,8 @@
 
                         <ComboBox x:Name="cbProdutos"
                                   Height="35"
-                                  BorderBrush="#CBD5E0"/>
+                                  BorderBrush="#CBD5E0"
+                                  VerticalContentAlignment="Center"/>
 
                     </StackPanel>
 
@@ -297,7 +295,8 @@
                                  Height="35"
                                  BorderBrush="#CBD5E0"
                                  VerticalContentAlignment="Center"
-                                 TextAlignment="Center"/>
+                                 TextAlignment="Center"
+                                 VerticalAlignment="Center"/>
 
                     </StackPanel>
 
@@ -311,7 +310,7 @@
                             Margin="0,24,0,0"
                             Background="#3182CE"
                             Foreground="White"
-                            FontWeight="Bold"/>
+                            FontWeight="Bold" Click="btnAdicionarProduto_Click"/>
 
                 </Grid>
 
@@ -335,7 +334,15 @@
                       AutoGenerateColumns="False"
                       CanUserAddRows="False"
                       IsReadOnly="True"
-                      RowHeight="35">
+                      HeadersVisibility="Column"
+                      CanUserResizeColumns="False"
+                      CanUserResizeRows="False"
+                      RowHeight="35"
+                      BorderThickness="0"
+                      GridLinesVisibility="Horizontal" 
+                      SelectionMode="Single"
+                      SelectionUnit="FullRow"
+                      VerticalContentAlignment="Center">
 
                 <DataGrid.Columns>
 
@@ -352,26 +359,57 @@
                                         Width="150"/>
 
                     <DataGridTextColumn Header="Subtotal"
-                                        Binding="{Binding Subtotal}"
+                                        Binding="{Binding ValorTotal}"
                                         Width="150"/>
 
-                    <!-- REMOVER -->
+                    <DataGridTemplateColumn Header="Status"
+                                            Width="150">
 
-                    <DataGridTemplateColumn Header="Remover"
-                                            Width="120">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox SelectedValue="{Binding Status}"
+                                          SelectedValuePath="Content"
+                                          Width="120">
+                                    <ComboBoxItem Content="Pendente"/>
+                                    <ComboBoxItem Content="Pago"/>
+                                    <ComboBoxItem Content="Enviado"/>
+                                    <ComboBoxItem Content="Entregue"/>
+                                </ComboBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+
+                    </DataGridTemplateColumn>
+
+                    <!-- Ações -->
+
+                    <DataGridTemplateColumn Header="Ações"
+                                            Width="220">
 
                         <DataGridTemplateColumn.CellTemplate>
 
                             <DataTemplate>
 
-                                <Button Content="Remover"
-                                        Width="90"
-                                        Height="28"
-                                        Background="#E53E3E"
-                                        Foreground="White"
-                                        FontWeight="SemiBold"
-                                        Click="btnRemoverItem_Click"/>
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Center">
+                                    <Button Content="Atualizar"
+                                            Width="90"
+                                            Height="30"
+                                            Background="#3182CE"
+                                            Foreground="White"
+                                            FontWeight="SemiBold"
+                                            Margin="10,0,10,0"
+                                            Click="btnAtualizarItem_Click"/>
 
+                                    <Button Content="Remover"
+                                            Width="90"
+                                            Height="30"
+                                            Background="#E53E3E"
+                                            Foreground="White"
+                                            FontWeight="SemiBold"
+                                            Click="btnRemoverItem_Click"/>
+
+                                </StackPanel>
+                                
                             </DataTemplate>
 
                         </DataGridTemplateColumn.CellTemplate>

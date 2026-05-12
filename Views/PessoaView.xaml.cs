@@ -247,5 +247,18 @@ namespace challange_by_coodesh.Views
                 MessageBox.Show("Nenhuma pessoa encontrada com os critérios de pesquisa.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+
+        private void BtnIncluirPedido_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgPessoa.SelectedItem is Pessoa pessoaSelecionada)
+            {
+                var pedidoView = new PedidoView(pessoaSelecionada);
+                pedidoView.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecione uma pessoa para incluir um pedido.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
     }
 }

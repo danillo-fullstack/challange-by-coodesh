@@ -288,12 +288,12 @@
                         
                     </Button>
 
-                    <Button Width="110"
+                    <Button x:Name="BtnIncluirPedido" Width="110"
                             Height="38"
                             Margin="0,0,10,0"
                             Foreground="#000"
                             BorderThickness="0"
-                            Cursor="Hand">
+                            Cursor="Hand" Click="BtnIncluirPedido_Click">
 
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Center"

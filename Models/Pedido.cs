@@ -9,7 +9,7 @@ namespace challange_by_coodesh.Models
         public int Id { get; set; }
         public int PessoaId { get; set; }
         public string NomePessoa { get; set; }
-        public List<PedidoItem> Itens { get; set; }
+        public List<ItemPedido> Itens { get; set; }
         public decimal ValorTotal { get; set; }
         public DateTime DataVenda { get; set; }
         public string FormaPagamento { get; set; }
@@ -19,9 +19,12 @@ namespace challange_by_coodesh.Models
 
         public Pedido()
         {
-            Itens = new List<PedidoItem>();
+            Itens = new List<ItemPedido>();
             Status = "Pendente";
             DataVenda = DateTime.Now;
+            NomePessoa = string.Empty;
+            FormaPagamento = string.Empty;
+            Situacao = string.Empty;
         }
 
     }
