@@ -9,9 +9,22 @@ namespace challange_by_coodesh.Models
         public int ProdutoId { get; set; }
         public string NomeProduto { get; set; }= string.Empty;
         public decimal ValorUnitario { get; set; }
-        public int Quantidade { get; set; }
+
+        private int _quantidade;
+
+        public int Quantidade
+        {
+            get { return _quantidade; }
+            set
+            {
+                if (value < 1)
+                {
+                    throw new ArgumentException("A quantidade deve ser de pelo menos 1.");
+                }
+                _quantidade = value;
+            }
+        }
         public string Status { get; set; } = "Pendente";
-        public string Situacao { get; set; } = "Processamento";
 
         public decimal ValorTotal
         {

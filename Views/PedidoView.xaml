@@ -241,7 +241,7 @@
                                   Height="35"
                                   BorderBrush="#CBD5E0"
                                   VerticalAlignment="Center"
-                                  VerticalContentAlignment="Center">
+                                  VerticalContentAlignment="Center" Cursor="Hand">
 
                             <ComboBoxItem Content="Dinheiro"/>
                             <ComboBoxItem Content="Cartão"/>
@@ -278,7 +278,7 @@
                         <ComboBox x:Name="cbProdutos"
                                   Height="35"
                                   BorderBrush="#CBD5E0"
-                                  VerticalContentAlignment="Center"/>
+                                  VerticalContentAlignment="Center" Cursor="Hand"/>
 
                     </StackPanel>
 
@@ -310,7 +310,7 @@
                             Margin="0,24,0,0"
                             Background="#3182CE"
                             Foreground="White"
-                            FontWeight="Bold" Click="btnAdicionarProduto_Click"/>
+                            FontWeight="Bold" Click="btnAdicionarProduto_Click" Cursor="Hand"/>
 
                 </Grid>
 
@@ -439,7 +439,7 @@
                     Height="42"
                     Background="#38A169"
                     Foreground="White"
-                    FontWeight="Bold" Click="btnFinalizarPedido_Click"/>
+                    FontWeight="Bold" Click="btnFinalizarPedido_Click" Cursor="Hand"/>
 
         </StackPanel>
 
@@ -475,6 +475,13 @@
                           Grid.Row="1"
                           AutoGenerateColumns="False"
                           CanUserAddRows="False"
+                          CanUserResizeColumns="False"
+                          CanUserResizeRows="False"
+                          BorderThickness="0"
+                          HeadersVisibility="Column"
+                          IsReadOnly="True"
+                          SelectionMode="Single"
+                          SelectionUnit="FullRow"
                           RowHeight="35">
 
                     <DataGrid.Columns>
@@ -497,30 +504,6 @@
                                             Binding="{Binding Status}"
                                             Width="120"/>
 
-
-                        <!-- AÇÕES STATUS -->
-
-                        <DataGridTemplateColumn Header="Pagamento"
-                                                Width="180">
-
-                            <DataGridTemplateColumn.CellTemplate>
-
-                                <DataTemplate>
-
-                                    <ComboBox Width="150"
-                                              Height="28"
-                                              SelectionChanged="cbStatus_SelectionChanged">
-
-                                        <ComboBoxItem Content="Pendente"/>
-                                        <ComboBoxItem Content="Pago"/>
-
-                                    </ComboBox>
-
-                                </DataTemplate>
-
-                            </DataGridTemplateColumn.CellTemplate>
-
-                        </DataGridTemplateColumn>
 
                         <!-- Ações -->
 

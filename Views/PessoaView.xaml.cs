@@ -80,9 +80,12 @@ namespace challange_by_coodesh.Views
 
         private void LimparCampos()
         {
+            txtId.Text = "";
             txtNome.Text = "";
             txtCPF.Text = "";
             txtEndereco.Text = "";
+
+            txtNome.Focus();
         }
 
         private void txtCPF_TextChanged(object sender, TextChangedEventArgs e)
@@ -160,19 +163,6 @@ namespace challange_by_coodesh.Views
             }
         }
 
-        private void DesabilitarAcoes()
-        {
-            txtId.Clear();
-            txtNome.Clear();
-            txtCPF.Clear();
-            txtEndereco.Clear();
-
-            txtNome.IsEnabled = false;
-            txtCPF.IsEnabled = false;
-            txtEndereco.IsEnabled = false;
-
-            dgPessoa.SelectedItem = null;
-        }
 
         private void HabilitarAcoes()
         {
@@ -211,8 +201,9 @@ namespace challange_by_coodesh.Views
                 {
                     _pessoas.Remove(pessoaSelecionada);
                     _pessoaService.SavePessoas(_pessoas.ToList());
-                    DesabilitarAcoes();
+                    HabilitarAcoes();
                     btnIncluir.IsEnabled = true;
+                    LimparCampos();
                     MessageBox.Show("Pessoa excluída com sucesso!", "Informação", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }

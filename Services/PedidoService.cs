@@ -27,17 +27,17 @@ namespace challange_by_coodesh.Services
             return pedidos ?? new List<Pedido>();
         }
 
-        public void SavePedidos(List<Pedido> pedidos)
-        {
-            var options = new JsonSerializerOptions
-            {
-                WriteIndented = true
-            };
+        //public void SavePedidos(List<Pedido> pedidos)
+        //{
+        //    var options = new JsonSerializerOptions
+        //    {
+        //        WriteIndented = true
+        //    };
 
-            var json = JsonSerializer.Serialize(pedidos, options);
+        //    var json = JsonSerializer.Serialize(pedidos, options);
 
-            File.WriteAllText(_filePath, json);
-        }
+        //    File.WriteAllText(_filePath, json);
+        //}
 
         public int GerarNovoId() 
         {

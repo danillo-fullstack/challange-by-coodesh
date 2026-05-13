@@ -19,8 +19,8 @@ namespace challange_by_coodesh.Views
     /// </summary>
     public partial class PedidoView : Window
     {
-        private Pessoa _pessoa;
-        private ProdutoService _produtoService;
+        private Pessoa _pessoa = new Pessoa();
+        private ProdutoService _produtoService = new ProdutoService();
         private List<ItemPedido> _itensPedido = new List<ItemPedido>();
         private PedidoService _pedidoService = new PedidoService();
 
@@ -30,7 +30,6 @@ namespace challange_by_coodesh.Views
             {
                 InitializeComponent();
                 _pessoa = pessoa;
-                _produtoService = new ProdutoService();
                 CarregarDadosPessoa();
                 CarregarProdutos();
                 CarregaHistoricoPedidos();
@@ -58,7 +57,8 @@ namespace challange_by_coodesh.Views
 
         private void CarregarProdutos()
         {
-            cbProdutos.ItemsSource = _produtoService.GetProdutos();
+            var produtos = _produtoService.GetProdutos();
+            cbProdutos.ItemsSource = produtos.OrderBy(p => p.ProdutoDescricao).ToList();
             cbProdutos.DisplayMemberPath = "ProdutoDescricao";
             cbProdutos.SelectedValuePath = "Id";
         }
@@ -85,48 +85,55 @@ namespace challange_by_coodesh.Views
 
         private void btnAdicionarProduto_Click(object sender, RoutedEventArgs e)
         {
-            if (cbProdutos.SelectedItem == null)
+            try
             {
-                MessageBox.Show(
-                    "Selecione um produto.");
+                if (cbProdutos.SelectedItem == null)
+                {
+                    MessageBox.Show(
+                        "Selecione um produto.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
 
-                return;
+                    return;
+                }
+
+                if (!int.TryParse(
+                    txtQuantidade.Text,
+                    out int quantidade))
+                {
+                    MessageBox.Show(
+                        "Informe uma quantidade válida.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+                    txtQuantidade.Focus();
+
+                    return;
+                }
+
+                Produto produto =
+                    (Produto)cbProdutos.SelectedItem;
+
+                ItemPedido item = new ItemPedido
+                {
+                    ProdutoId = produto.Id,
+                    NomeProduto = produto.Nome,
+                    Quantidade = quantidade,
+                    ValorUnitario = produto.Valor
+                };
+
+                _itensPedido.Add(item);
+
+                dgItensPedido.ItemsSource = null;
+
+                dgItensPedido.ItemsSource = _itensPedido;
+
+                AtualizarValorTotal();
+
+                txtQuantidade.Clear();
+
+                cbProdutos.SelectedIndex = -1;
             }
-
-            if (!int.TryParse(
-                txtQuantidade.Text,
-                out int quantidade))
+            catch (Exception ex)
             {
-                MessageBox.Show(
-                    "Informe uma quantidade válida.");
-
-                txtQuantidade.Focus();
-
-                return;
+                MessageBox.Show($"Ocorreu um erro ao adicionar o produto ao pedido: {ex.Message}", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-            Produto produto =
-                (Produto)cbProdutos.SelectedItem;
-
-            ItemPedido item = new ItemPedido
-            {
-                ProdutoId = produto.Id,
-                NomeProduto = produto.Nome,
-                Quantidade = quantidade,
-                ValorUnitario = produto.Valor
-            };
-
-            _itensPedido.Add(item);
-
-            dgItensPedido.ItemsSource = null;
-
-            dgItensPedido.ItemsSource = _itensPedido;
-
-            AtualizarValorTotal();
-
-            txtQuantidade.Clear();
-
-            cbProdutos.SelectedIndex = -1;
         }
 
         private void AtualizarValorTotal()
@@ -146,6 +153,13 @@ namespace challange_by_coodesh.Views
             if (cbFormaPagamento.SelectedItem == null)
             {
                 MessageBox.Show("Selecione uma forma de pagamento.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            MessageBoxResult resultado = MessageBox.Show("Deseja realmente finalizar este pedido?", "Confirmar Pedido",MessageBoxButton.YesNo,MessageBoxImage.Question);
+
+            if (resultado == MessageBoxResult.No)
+            {
                 return;
             }
 
