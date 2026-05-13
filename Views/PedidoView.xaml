@@ -346,48 +346,67 @@
 
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="Produto"
-                                        Binding="{Binding NomeProduto}"
-                                        Width="*"/>
+                    <DataGridTemplateColumn Header="Produto"
+                                            Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding NomeProduto}"
+                                           VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
-                    <DataGridTextColumn Header="Quantidade"
-                                        Binding="{Binding Quantidade}"
-                                        Width="120"/>
+                    <DataGridTemplateColumn Header="Quantidade"
+                                            Width="150">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Quantidade}"
+                                           VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
-                    <DataGridTextColumn Header="Valor Unitário"
-                                        Binding="{Binding ValorUnitario}"
-                                        Width="150"/>
+                    <DataGridTemplateColumn Header="Valor Unitário"
+                                            Width="150">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ValorUnitario}"
+                                           VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
-                    <DataGridTextColumn Header="Subtotal"
-                                        Binding="{Binding ValorTotal}"
-                                        Width="150"/>
+                    <DataGridTemplateColumn Header="Subtotal"
+                                            Width="150">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ValorTotal}"
+                                           VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
                     <DataGridTemplateColumn Header="Status"
                                             Width="150">
 
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <ComboBox SelectedValue="{Binding Status}"
-                                          SelectedValuePath="Content"
-                                          Width="120">
-                                    <ComboBoxItem Content="Pendente"/>
-                                    <ComboBoxItem Content="Pago"/>
-                                    <ComboBoxItem Content="Enviado"/>
-                                    <ComboBoxItem Content="Entregue"/>
-                                </ComboBox>
+                                <TextBlock Text="{Binding Status}"
+                                           VerticalAlignment="Center"/>
                             </DataTemplate>
 
                         </DataGridTemplateColumn.CellTemplate>
 
                     </DataGridTemplateColumn>
+                    
                     <DataGridTemplateColumn Header="Ações"
-                            Width="140">
+                            Width="100">
 
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
 
                                 <StackPanel Orientation="Horizontal"
-                            HorizontalAlignment="Center">
+                                            HorizontalAlignment="Left">
 
                                     <Button Content="Remover"
                                             Width="90"
@@ -395,6 +414,7 @@
                                             Background="#E53E3E"
                                             Foreground="White"
                                             FontWeight="SemiBold"
+                                            Cursor="Hand"
                                             Click="btnRemoverItem_Click"/>
 
                                 </StackPanel>

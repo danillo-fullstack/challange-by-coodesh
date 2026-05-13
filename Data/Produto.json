@@ -1,9 +1,107 @@
 [
   {
     "Id": 1,
-    "Nome": "Teste",
-    "CodigoProduto": "sfdfads",
-    "Valor": 22.00,
-    "ProdutoDescricao": "Teste - R$ 22,00"
+    "Nome": "Arroz Integral 5kg",
+    "CodigoProduto": "ALM-001",
+    "Valor": 25.90,
+    "ProdutoDescricao": "Arroz Integral 5kg - R$ 25,90"
+  },
+  {
+    "Id": 2,
+    "Nome": "Feijão Carioca 1kg",
+    "CodigoProduto": "ALM-002",
+    "Valor": 8.50,
+    "ProdutoDescricao": "Feijão Carioca 1kg - R$ 8,50"
+  },
+  {
+    "Id": 3,
+    "Nome": "Azeite de Oliva Extra Virgem",
+    "CodigoProduto": "ALM-003",
+    "Valor": 32.00,
+    "ProdutoDescricao": "Azeite de Oliva Extra Virgem - R$ 32,00"
+  },
+  {
+    "Id": 4,
+    "Nome": "Café Torrado e Moído 500g",
+    "CodigoProduto": "BEB-001",
+    "Valor": 18.90,
+    "ProdutoDescricao": "Café Torrado e Moído 500g - R$ 18,90"
+  },
+  {
+    "Id": 5,
+    "Nome": "Leite Integral 1L",
+    "CodigoProduto": "LCT-001",
+    "Valor": 5.45,
+    "ProdutoDescricao": "Leite Integral 1L - R$ 5,45"
+  },
+  {
+    "Id": 6,
+    "Nome": "Açúcar Refinado 1kg",
+    "CodigoProduto": "ALM-004",
+    "Valor": 4.20,
+    "ProdutoDescricao": "Açúcar Refinado 1kg - R$ 4,20"
+  },
+  {
+    "Id": 7,
+    "Nome": "Detergente Líquido 500ml",
+    "CodigoProduto": "LIM-001",
+    "Valor": 2.30,
+    "ProdutoDescricao": "Detergente Líquido 500ml - R$ 2,30"
+  },
+  {
+    "Id": 8,
+    "Nome": "Sabão em Pó 1kg",
+    "CodigoProduto": "LIM-002",
+    "Valor": 14.90,
+    "ProdutoDescricao": "Sabão em Pó 1kg - R$ 14,90"
+  },
+  {
+    "Id": 9,
+    "Nome": "Papel Higiênico 12 rolos",
+    "CodigoProduto": "HIG-001",
+    "Valor": 21.00,
+    "ProdutoDescricao": "Papel Higiênico 12 rolos - R$ 21,00"
+  },
+  {
+    "Id": 10,
+    "Nome": "Creme Dental 90g",
+    "CodigoProduto": "HIG-002",
+    "Valor": 6.80,
+    "ProdutoDescricao": "Creme Dental 90g - R$ 6,80"
+  },
+  {
+    "Id": 11,
+    "Nome": "Sabonete Barra 90g",
+    "CodigoProduto": "HIG-003",
+    "Valor": 3.15,
+    "ProdutoDescricao": "Sabonete Barra 90g - R$ 3,15"
+  },
+  {
+    "Id": 12,
+    "Nome": "Macarrão Espaguete 500g",
+    "CodigoProduto": "ALM-005",
+    "Valor": 4.75,
+    "ProdutoDescricao": "Macarrão Espaguete 500g - R$ 4,75"
+  },
+  {
+    "Id": 13,
+    "Nome": "Molho de Tomate 340g",
+    "CodigoProduto": "ALM-006",
+    "Valor": 3.50,
+    "ProdutoDescricao": "Molho de Tomate 340g - R$ 3,50"
+  },
+  {
+    "Id": 14,
+    "Nome": "Bolacha Recheada 140g",
+    "CodigoProduto": "ALM-007",
+    "Valor": 2.90,
+    "ProdutoDescricao": "Bolacha Recheada 140g - R$ 2,90"
+  },
+  {
+    "Id": 15,
+    "Nome": "Suco de Uva Integral 1L",
+    "CodigoProduto": "BEB-002",
+    "Valor": 16.50,
+    "ProdutoDescricao": "Suco de Uva Integral 1L - R$ 16,50"
   }
 ]

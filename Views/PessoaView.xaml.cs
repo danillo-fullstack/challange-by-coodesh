@@ -205,6 +205,7 @@ namespace challange_by_coodesh.Views
                     btnIncluir.IsEnabled = true;
                     LimparCampos();
                     MessageBox.Show("Pessoa excluída com sucesso!", "Informação", MessageBoxButton.OK, MessageBoxImage.Information);
+                    dgPessoa.Items.Refresh();
                 }
             }
             else

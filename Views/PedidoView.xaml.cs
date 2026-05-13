@@ -70,7 +70,15 @@ namespace challange_by_coodesh.Views
 
         private void btnRemoverItem_Click(object sender, RoutedEventArgs e)
         {
-            // Lógica para remover item do pedido
+            Button botaoRemove = (Button)sender;
+
+            ItemPedido itemSelecionado = (ItemPedido)botaoRemove.DataContext;
+
+            _itensPedido.Remove(itemSelecionado);
+            dgItensPedido.ItemsSource = null;
+            dgItensPedido.ItemsSource = _itensPedido;
+            AtualizarValorTotal();
+
         }
 
         private void cbStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
