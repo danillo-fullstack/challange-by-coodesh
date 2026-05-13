@@ -325,9 +325,7 @@
                           SelectionChanged="dgProdutos_SelectionChanged">
 
                     <DataGrid.Columns>
-                        <!--<DataGridTextColumn Header="Id"
-                                            Width="70"
-                                            Binding="{Binding Id}"/>-->
+
                         <DataGridTemplateColumn Header="Id"
                                                 Width="70">
                             <DataGridTemplateColumn.CellTemplate>
@@ -337,10 +335,6 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-
-                        <!--<DataGridTextColumn Header="Nome"
-                                            Width="*"
-                                            Binding="{Binding Nome}"/>-->
 
                         <DataGridTemplateColumn Header="Nome"
                                                 Width="*">
@@ -352,9 +346,6 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <!--<DataGridTextColumn Header="Código"
-                                            Width="220"
-                                            Binding="{Binding CodigoProduto}"/>-->
                         <DataGridTemplateColumn Header="Código"
                                                 Width="220">
                             <DataGridTemplateColumn.CellTemplate>
@@ -365,9 +356,6 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <!--<DataGridTextColumn Header="Valor"
-                                            Width="150"
-                                            Binding="{Binding Valor}"/>-->
                         <DataGridTemplateColumn Header="Valor"
                                                 Width="150">
                             <DataGridTemplateColumn.CellTemplate>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Policy;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -47,5 +48,20 @@ namespace challange_by_coodesh.Services
             File.WriteAllText(_filePath, json);
         }
 
+        public void AtualizarStatusPedido(Pedido pedidoAtualizado)
+        {
+            List<Pedido> pedidos = GetPedidos();
+
+            Pedido? pedido = pedidos.FirstOrDefault(p => p.Id == pedidoAtualizado.Id);
+
+            if (pedido != null) 
+            { 
+                pedido.Status = pedidoAtualizado.Status;
+                string json = JsonSerializer.Serialize(pedidos, new JsonSerializerOptions { WriteIndented = true });
+
+                File.WriteAllText(_filePath, json);
+            }
+
+        }
     }
 }

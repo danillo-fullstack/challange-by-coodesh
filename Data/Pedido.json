@@ -18,5 +18,45 @@
     "FormaPagamento": "Cart\u00E3o",
     "Status": "Pendente",
     "Situacao": ""
+  },
+  {
+    "Id": 2,
+    "PessoaId": 6,
+    "NomePessoa": "Juliana Ferreira Mello",
+    "Itens": [
+      {
+        "ProdutoId": 3,
+        "NomeProduto": "Azeite de Oliva Extra Virgem",
+        "ValorUnitario": 32.00,
+        "Quantidade": 1,
+        "Status": "Pendente",
+        "ValorTotal": 32.00
+      }
+    ],
+    "ValorTotal": 32.00,
+    "DataVenda": "2026-05-13T12:53:42.0967082-03:00",
+    "FormaPagamento": "Cart\u00E3o",
+    "Status": "Pendente",
+    "Situacao": ""
+  },
+  {
+    "Id": 3,
+    "PessoaId": 3,
+    "NomePessoa": "Carlos Eduardo Souza",
+    "Itens": [
+      {
+        "ProdutoId": 1,
+        "NomeProduto": "Arroz Integral 5kg",
+        "ValorUnitario": 25.90,
+        "Quantidade": 1,
+        "Status": "Pendente",
+        "ValorTotal": 25.90
+      }
+    ],
+    "ValorTotal": 25.90,
+    "DataVenda": "2026-05-13T13:05:31.1085417-03:00",
+    "FormaPagamento": "Dinheiro",
+    "Status": "Enviado",
+    "Situacao": ""
   }
 ]

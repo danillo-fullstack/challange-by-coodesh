@@ -65,7 +65,11 @@ namespace challange_by_coodesh.Views
 
         private void btnAtualizarItem_Click(object sender, RoutedEventArgs e)
         {
-            // Lógica para remover item do pedido
+            Button botao = (Button)sender;
+            Pedido pedido = (Pedido)botao.DataContext;
+
+            _pedidoService.AtualizarStatusPedido(pedido);
+            MessageBox.Show("Status atualizado com sucesso!", "Informação", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void btnRemoverItem_Click(object sender, RoutedEventArgs e)
@@ -184,7 +188,7 @@ namespace challange_by_coodesh.Views
                 ValorTotal = total,
                 DataVenda = DateTime.Now,
                 FormaPagamento = formaPagamentoItem.Content.ToString() ?? string.Empty,
-                Status = "Pendente"
+                Status = "Pago"
             };
 
             _pedidoService.AdicionarPedido(pedido);
