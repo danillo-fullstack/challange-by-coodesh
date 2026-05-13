@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "Id": 1,
+    "PessoaId": 1,
+    "NomePessoa": "Mariana Silva Oliveira",
+    "Itens": [
+      {
+        "ProdutoId": 32,
+        "NomeProduto": "\u00C1gua Sanit\u00E1ria 1L",
+        "ValorUnitario": 4.15,
+        "Quantidade": 2,
+        "Status": "Pendente",
+        "ValorTotal": 8.30
+      },
+      {
+        "ProdutoId": 6,
+        "NomeProduto": "A\u00E7\u00FAcar Refinado 1kg",
+        "ValorUnitario": 4.20,
+        "Quantidade": 7,
+        "Status": "Pendente",
+        "ValorTotal": 29.40
+      }
+    ],
+    "ValorTotal": 37.70,
+    "DataVenda": "2026-05-13T14:39:33.259915-03:00",
+    "FormaPagamento": "Dinheiro",
+    "Status": "Pago"
+  }
+]
