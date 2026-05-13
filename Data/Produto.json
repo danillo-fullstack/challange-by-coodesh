@@ -1,1 +1,9 @@
-﻿[]
+[
+  {
+    "Id": 1,
+    "Nome": "Teste",
+    "CodigoProduto": "sfdfads",
+    "Valor": 22.00,
+    "ProdutoDescricao": "Teste - R$ 22,00"
+  }
+]

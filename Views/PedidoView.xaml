@@ -504,11 +504,10 @@
                                             Binding="{Binding Status}"
                                             Width="120"/>
 
-
                         <!-- Ações -->
 
                         <DataGridTemplateColumn Header="Ações"
-                        Width="220">
+                                                Width="220">
 
                             <DataGridTemplateColumn.CellTemplate>
 

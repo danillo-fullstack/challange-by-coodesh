@@ -11,7 +11,7 @@ namespace challange_by_coodesh.Services
 {
     public class PedidoService
     {
-        private readonly string _filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Pedido.json");
+        private readonly string _filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data", "Pedido.json");
 
         public List<Pedido> GetPedidos()
         {
@@ -26,18 +26,6 @@ namespace challange_by_coodesh.Services
 
             return pedidos ?? new List<Pedido>();
         }
-
-        //public void SavePedidos(List<Pedido> pedidos)
-        //{
-        //    var options = new JsonSerializerOptions
-        //    {
-        //        WriteIndented = true
-        //    };
-
-        //    var json = JsonSerializer.Serialize(pedidos, options);
-
-        //    File.WriteAllText(_filePath, json);
-        //}
 
         public int GerarNovoId() 
         {

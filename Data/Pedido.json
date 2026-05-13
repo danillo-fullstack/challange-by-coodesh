@@ -1,0 +1,22 @@
+[
+  {
+    "Id": 1,
+    "PessoaId": 1,
+    "NomePessoa": "Danillo Victtor Caetano",
+    "Itens": [
+      {
+        "ProdutoId": 1,
+        "NomeProduto": "Teste",
+        "ValorUnitario": 22.00,
+        "Quantidade": 1,
+        "Status": "Pendente",
+        "ValorTotal": 22.00
+      }
+    ],
+    "ValorTotal": 22.00,
+    "DataVenda": "2026-05-13T10:47:28.8272416-03:00",
+    "FormaPagamento": "Cart\u00E3o",
+    "Status": "Pendente",
+    "Situacao": ""
+  }
+]

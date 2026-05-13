@@ -9,7 +9,7 @@ namespace challange_by_coodesh.Services
 {
     class ProdutoService
     {
-        private readonly string _filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Produto.json");
+        private readonly string _filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data", "Produto.json");
 
         public List<Produto> GetProdutos()
         {
