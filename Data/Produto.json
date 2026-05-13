@@ -103,5 +103,215 @@
     "CodigoProduto": "BEB-002",
     "Valor": 16.50,
     "ProdutoDescricao": "Suco de Uva Integral 1L - R$ 16,50"
+  },
+  {
+    "Id": 16,
+    "Nome": "Manteiga com Sal 200g",
+    "CodigoProduto": "LCT-002",
+    "Valor": 12.40,
+    "ProdutoDescricao": "Manteiga com Sal 200g - R$ 12,40"
+  },
+  {
+    "Id": 17,
+    "Nome": "Queijo Muçarela Fatiado 200g",
+    "CodigoProduto": "LCT-003",
+    "Valor": 15.80,
+    "ProdutoDescricao": "Queijo Muçarela Fatiado 200g - R$ 15,80"
+  },
+  {
+    "Id": 18,
+    "Nome": "Iogurte Natural 170g",
+    "CodigoProduto": "LCT-004",
+    "Valor": 3.90,
+    "ProdutoDescricao": "Iogurte Natural 170g - R$ 3,90"
+  },
+  {
+    "Id": 19,
+    "Nome": "Óleo de Soja 900ml",
+    "CodigoProduto": "ALM-008",
+    "Valor": 7.20,
+    "ProdutoDescricao": "Óleo de Soja 900ml - R$ 7,20"
+  },
+  {
+    "Id": 20,
+    "Nome": "Farinha de Trigo 1kg",
+    "CodigoProduto": "ALM-009",
+    "Valor": 5.60,
+    "ProdutoDescricao": "Farinha de Trigo 1kg - R$ 5,60"
+  },
+  {
+    "Id": 21,
+    "Nome": "Sal Refinado 1kg",
+    "CodigoProduto": "ALM-010",
+    "Valor": 2.10,
+    "ProdutoDescricao": "Sal Refinado 1kg - R$ 2,10"
+  },
+  {
+    "Id": 22,
+    "Nome": "Maionese 500g",
+    "CodigoProduto": "ALM-011",
+    "Valor": 9.40,
+    "ProdutoDescricao": "Maionese 500g - R$ 9,40"
+  },
+  {
+    "Id": 23,
+    "Nome": "Ketchup 400g",
+    "CodigoProduto": "ALM-012",
+    "Valor": 8.90,
+    "ProdutoDescricao": "Ketchup 400g - R$ 8,90"
+  },
+  {
+    "Id": 24,
+    "Nome": "Milho de Pipoca 500g",
+    "CodigoProduto": "ALM-013",
+    "Valor": 5.30,
+    "ProdutoDescricao": "Milho de Pipoca 500g - R$ 5,30"
+  },
+  {
+    "Id": 25,
+    "Nome": "Sardinha em Lata 125g",
+    "CodigoProduto": "ALM-014",
+    "Valor": 4.80,
+    "ProdutoDescricao": "Sardinha em Lata 125g - R$ 4,80"
+  },
+  {
+    "Id": 26,
+    "Nome": "Água Mineral s/ Gás 1.5L",
+    "CodigoProduto": "BEB-003",
+    "Valor": 3.50,
+    "ProdutoDescricao": "Água Mineral s/ Gás 1.5L - R$ 3,50"
+  },
+  {
+    "Id": 27,
+    "Nome": "Refrigerante Cola 2L",
+    "CodigoProduto": "BEB-004",
+    "Valor": 11.90,
+    "ProdutoDescricao": "Refrigerante Cola 2L - R$ 11,90"
+  },
+  {
+    "Id": 28,
+    "Nome": "Cerveja Lata 350ml",
+    "CodigoProduto": "BEB-005",
+    "Valor": 4.50,
+    "ProdutoDescricao": "Cerveja Lata 350ml - R$ 4,50"
+  },
+  {
+    "Id": 29,
+    "Nome": "Vinho Tinto Seco 750ml",
+    "CodigoProduto": "BEB-006",
+    "Valor": 35.00,
+    "ProdutoDescricao": "Vinho Tinto Seco 750ml - R$ 35,00"
+  },
+  {
+    "Id": 30,
+    "Nome": "Amaciante de Roupa 2L",
+    "CodigoProduto": "LIM-003",
+    "Valor": 18.20,
+    "ProdutoDescricao": "Amaciante de Roupa 2L - R$ 18,20"
+  },
+  {
+    "Id": 31,
+    "Nome": "Desinfetante Pinho 500ml",
+    "CodigoProduto": "LIM-004",
+    "Valor": 6.40,
+    "ProdutoDescricao": "Desinfetante Pinho 500ml - R$ 6,40"
+  },
+  {
+    "Id": 32,
+    "Nome": "Água Sanitária 1L",
+    "CodigoProduto": "LIM-005",
+    "Valor": 4.15,
+    "ProdutoDescricao": "Água Sanitária 1L - R$ 4,15"
+  },
+  {
+    "Id": 33,
+    "Nome": "Esponja de Aço (3 unid)",
+    "CodigoProduto": "LIM-006",
+    "Valor": 2.80,
+    "ProdutoDescricao": "Esponja de Aço (3 unid) - R$ 2,80"
+  },
+  {
+    "Id": 34,
+    "Nome": "Shampoo 400ml",
+    "CodigoProduto": "HIG-004",
+    "Valor": 14.50,
+    "ProdutoDescricao": "Shampoo 400ml - R$ 14,50"
+  },
+  {
+    "Id": 35,
+    "Nome": "Condicionador 400ml",
+    "CodigoProduto": "HIG-005",
+    "Valor": 16.20,
+    "ProdutoDescricao": "Condicionador 400ml - R$ 16,20"
+  },
+  {
+    "Id": 36,
+    "Nome": "Desodorante Roll-on 50ml",
+    "CodigoProduto": "HIG-006",
+    "Valor": 9.90,
+    "ProdutoDescricao": "Desodorante Roll-on 50ml - R$ 9,90"
+  },
+  {
+    "Id": 37,
+    "Nome": "Fio Dental 50m",
+    "CodigoProduto": "HIG-007",
+    "Valor": 11.30,
+    "ProdutoDescricao": "Fio Dental 50m - R$ 11,30"
+  },
+  {
+    "Id": 38,
+    "Nome": "Papel Alumínio 5m",
+    "CodigoProduto": "UTI-001",
+    "Valor": 6.10,
+    "ProdutoDescricao": "Papel Alumínio 5m - R$ 6,10"
+  },
+  {
+    "Id": 39,
+    "Nome": "Saco de Lixo 50L (10 unid)",
+    "CodigoProduto": "UTI-002",
+    "Valor": 8.70,
+    "ProdutoDescricao": "Saco de Lixo 50L (10 unid) - R$ 8,70"
+  },
+  {
+    "Id": 40,
+    "Nome": "Pão de Forma Tradicional",
+    "CodigoProduto": "PAD-001",
+    "Valor": 7.50,
+    "ProdutoDescricao": "Pão de Forma Tradicional - R$ 7,50"
+  },
+  {
+    "Id": 41,
+    "Nome": "Ovos Brancos (Dúzia)",
+    "CodigoProduto": "ALM-015",
+    "Valor": 12.90,
+    "ProdutoDescricao": "Ovos Brancos (Dúzia) - R$ 12,90"
+  },
+  {
+    "Id": 42,
+    "Nome": "Peito de Frango 1kg",
+    "CodigoProduto": "CAR-001",
+    "Valor": 19.90,
+    "ProdutoDescricao": "Peito de Frango 1kg - R$ 19,90"
+  },
+  {
+    "Id": 43,
+    "Nome": "Carne Moída Patinho 500g",
+    "CodigoProduto": "CAR-002",
+    "Valor": 24.50,
+    "ProdutoDescricao": "Carne Moída Patinho 500g - R$ 24,50"
+  },
+  {
+    "Id": 44,
+    "Nome": "Banana Nanica (Kg)",
+    "CodigoProduto": "HFR-001",
+    "Valor": 6.30,
+    "ProdutoDescricao": "Banana Nanica (Kg) - R$ 6,30"
+  },
+  {
+    "Id": 45,
+    "Nome": "Tomate Italiano (Kg)",
+    "CodigoProduto": "HFR-002",
+    "Valor": 9.80,
+    "ProdutoDescricao": "Tomate Italiano (Kg) - R$ 9,80"
   }
 ]
