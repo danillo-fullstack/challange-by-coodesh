@@ -15,8 +15,6 @@ namespace challange_by_coodesh.Models
         public string FormaPagamento { get; set; }
         public string Status { get; set; }
 
-        public string Situacao { get; set; }
-
         public Pedido()
         {
             Itens = new List<ItemPedido>();
@@ -24,7 +22,6 @@ namespace challange_by_coodesh.Models
             DataVenda = DateTime.Now;
             NomePessoa = string.Empty;
             FormaPagamento = string.Empty;
-            Situacao = string.Empty;
         }
 
     }
